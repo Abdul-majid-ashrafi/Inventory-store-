@@ -8,7 +8,6 @@ const initialState = {
     error: {}
 }
 export const authReducer = (state = initialState, action) => {
-    console.log(action)
     let newState = state
     switch (action.type) {
         case AuthActions.REGISTER:
@@ -36,6 +35,9 @@ export const authReducer = (state = initialState, action) => {
             newState['isLoggedIn'] = true;
             newState['user'] = action.payload;
             return Object.assign({}, state, newState)
+
+        case AuthActions.ALREADY_LOGGEDIN:
+            return Object.assign({}, state, { isLoading: false });
 
         case AuthActions.LOGIN_FAIL:
             newState['error'] = action.payload

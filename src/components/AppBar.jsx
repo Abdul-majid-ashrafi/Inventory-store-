@@ -41,6 +41,10 @@ const container = {
                                             <mat.MenuItem primaryText="Create Branch" style={{ color: "white" }} />
                                             </Link>
                                             <mat.MenuItem primaryText="All Branches" style={{ color: "white" }} />
+                                            <Link to="/">
+                                            <mat.MenuItem primaryText="Create Department" style={{ color: "white" }} />
+                                            </Link>
+                                            <mat.MenuItem primaryText="All Department" style={{ color: "white" }} />
                                         </div>
                                     </mat.IconMenu>
 

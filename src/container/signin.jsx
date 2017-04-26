@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { SignInFrom } from '../components'
 import { AuthActions } from '../store/actions'
-
+import { AuthEpic } from '../store/epics'
 
 export class Signin extends Component {
     constructor() {
@@ -13,6 +13,13 @@ export class Signin extends Component {
             pass: ''
         }
     }
+
+    componentWillMount() {
+        if (AuthEpic.getLocalStorage()) {
+            this.props.alreadyLoggedIn(AuthEpic.getLocalStorage())
+        }
+    }
+
     inputHandler(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -44,9 +51,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        loginUser: (obj) => {
-            dispatch(AuthActions.login(obj))
-        }
+        loginUser: (obj) => dispatch(AuthActions.login(obj)),
+        alreadyLoggedIn: (obj) => dispatch(AuthActions.alreadyLogin(obj))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Signin)

@@ -41,13 +41,13 @@ export class AuthEpic {
                             console.log('response wala', res)
                             return Observable.fromPromise(firebase.database().ref('/').child(`users/${res.uid}`).once('value'))
                                 .map(data => {
-                                    // let obj = {}
-                                    // obj["uid"] = res.uid
-                                    // obj = Object.assign({}, obj, data.val())
-                                    AuthEpic.setLocalStorage(res.uid)
+                                    let obj = {}
+                                    obj["uid"] = res.uid
+                                    obj = Object.assign({}, obj, data.val())
+                                    AuthEpic.setLocalStorage(obj)
                                     return {
                                         type: AuthActions.LOGIN_SUCCESS,
-                                        payload: data.val()
+                                        payload: obj
                                     }
                                 })
                         } else {
@@ -60,6 +60,18 @@ export class AuthEpic {
                         }
                     })
             })
+
+
+    static alreadyLoggedIn(action$) {
+        return action$.ofType(AuthActions.ALREADY_LOGGEDIN)
+            .switchMap((payload) => {
+                return Observable.of({
+                    type: AuthActions.LOGIN_SUCCESS,
+                    payload: AuthEpic.getLocalStorage()
+                })
+            })
+    }
+
 
 
 

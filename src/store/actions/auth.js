@@ -9,6 +9,7 @@ export class AuthActions {
 
     static LOGIN = 'LOGIN';
     static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+    static ALREADY_LOGGEDIN = 'ALREADY_LOGGEDIN';
     static LOGIN_FAIL = 'LOGIN_FAIL';
 
     static LOGOUT = 'LOGOUT';
@@ -21,6 +22,13 @@ export class AuthActions {
             payload: obj
         }
     }
+    static alreadyLogin = (data) => {
+        return {
+            type: AuthActions.ALREADY_LOGGEDIN,
+            payload: data
+        }
+    }
+
     static login = (credential) => {
         return {
             type: AuthActions.LOGIN,
