@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { CreateBranchComponent } from '../components'
+import { CreateSupplierComponent } from '../components'
 import { BranchesActions } from '../store/actions'
 
 
-class CreateBranchContainer extends Component {
+class CreateSupplierContainer extends Component {
     constructor() {
         super()
         this.state = {
-            branchName: '',
-            branchAddress: ''
+            supplierName: '',
+            supplierNumber: '',
+            supplierAddress: ''
         }
     }
     inputHandler(e) {
@@ -19,12 +20,12 @@ class CreateBranchContainer extends Component {
     }
     submit(e) {
         e.preventDefault();
-        this.props.newBranch(this.state)
+        this.props.newSupplier(this.state)
     }
     render() {
         return (
             <div>
-                <CreateBranchComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreateSupplierComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
@@ -38,8 +39,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newBranch: (branxh) => dispatch(BranchesActions.addData(branxh, "branches")),
+        newSupplier: (supplierInfo) => dispatch(BranchesActions.addData(supplierInfo, "suppliers")),
         resutlFalse: () => dispatch(BranchesActions.setResultFalse())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBranchContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateSupplierContainer)

@@ -6,17 +6,17 @@ import { BranchesActions } from '../actions'
 export class BranchesEpic {
 
     static createBranche = (action$) =>
-        action$.ofType(BranchesActions.SET_BRANCH)
-            .switchMap(({ payload }) => {
-                return firebase.database().ref('/').child(`branches/${BranchesEpic.getLocalStorage().uid}`).push(payload)
+        action$.ofType(BranchesActions.SET_DATA)
+            .switchMap(({ payload, path }) => {
+                return firebase.database().ref('/').child(`${path}/${BranchesEpic.getLocalStorage().uid}`).push(payload)
                     .then((response) => {
                         return {
-                            type: BranchesActions.SET_BRANCH_SUCCESS
+                            type: BranchesActions.SET_DATA_SUCCESS
                         }
                     })
                     .catch((error) => {
                         return Observable.of({
-                            type: BranchesActions.SET_BRANCH_FAIL,
+                            type: BranchesActions.SET_DATA_FAIL,
                             payload: error.code
                         })
                     })

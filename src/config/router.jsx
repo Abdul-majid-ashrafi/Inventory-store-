@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Route, Router, browserHistory, IndexRoute } from "react-router";
-import { Signup, Signin, Home,CreateBranchContainer } from '../container'
+import { Signup, Signin, Home, CreateBranchContainer, CreateDepartContainer, CreateSupplierContainer, CreateCustomerContainer } from '../container'
 import { NavBar } from '../components'
 
 // material UI Component And Config
@@ -23,11 +23,14 @@ export class AllRoutes extends Component {
                         <Router history={browserHistory}>
 
                             <Route path="/registration" component={Signup} />
-                                <Route path="/login" component={Signin} />
+                            <Route path="/login" component={Signin} />
                             <Route path="/" component={NavBar}>
                                 <IndexRoute component={Signin} />
                                 <Route path="/home" component={Home} />
                                 <Route path="/create_branch" component={CreateBranchContainer} />
+                                <Route path="/create_branch_depart" component={CreateDepartContainer} />
+                                <Route path="/create_supplier" component={CreateSupplierContainer} />
+                                <Route path="/create_customer" component={CreateCustomerContainer} />
                             </Route>
                             {/*<Route path></Route>*/}
 

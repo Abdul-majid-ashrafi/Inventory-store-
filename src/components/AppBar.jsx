@@ -41,7 +41,7 @@ const container = {
                                             <mat.MenuItem primaryText="Create Branch" style={{ color: "white" }} />
                                             </Link>
                                             <mat.MenuItem primaryText="All Branches" style={{ color: "white" }} />
-                                            <Link to="/">
+                                            <Link to="/create_branch_depart">
                                             <mat.MenuItem primaryText="Create Department" style={{ color: "white" }} />
                                             </Link>
                                             <mat.MenuItem primaryText="All Department" style={{ color: "white" }} />
@@ -52,7 +52,9 @@ const container = {
                                         iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{color : "white"}} />}
                                     >
                                         <div style={header}>
+                                            <Link to="/create_supplier">
                                             <mat.MenuItem primaryText="Create Supplier" style={{ color: "white" }} />
+                                            </Link>
                                             <mat.MenuItem primaryText="All Suppliers" style={{ color: "white" }} />
                                         </div>
                                     </mat.IconMenu>
@@ -61,7 +63,9 @@ const container = {
                                         iconButtonElement={<mat.FlatButton label="Customers" labelStyle={{color : "white"}} />}
                                     >
                                         <div style={header}>
+                                            <Link to="/create_customer">
                                             <mat.MenuItem primaryText="Create Customer" style={{ color: "white" }} />
+                                            </Link>
                                             <mat.MenuItem primaryText="All Customers" style={{ color: "white" }} />
                                         </div>
                                     </mat.IconMenu>

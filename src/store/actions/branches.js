@@ -1,8 +1,9 @@
 export class BranchesActions {
 
-    static SET_BRANCH = 'SET_BRANCH';
-    static SET_BRANCH_SUCCESS = 'SET_BRANCH_SUCCESS';
-    static SET_BRANCH_FAIL = 'SET_BRANCH_FAIL';
+    static SET_DATA = 'SET_DATA';
+    static SET_DATA_SUCCESS = 'SET_DATA_SUCCESS';
+    static SET_DATA_FAIL = 'SET_DATA_FAIL';
+    static SET_RESULT_FALSE = 'SET_RESULT_FALSE';
 
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -13,10 +14,17 @@ export class BranchesActions {
     // static LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
     // static LOGOUT_FAIL = 'LOGOUT_FAIL';
 
-    static createBranch = (obj) => {
+    static setResultFalse = () => {
         return {
-            type: BranchesActions.SET_BRANCH,
-            payload: obj
+            type: BranchesActions.SET_RESULT_FALSE
+        }
+    }
+
+    static addData = (obj, path) => {
+        return {
+            type: BranchesActions.SET_DATA,
+            payload: obj,
+            path: path
         }
     }
     // static alreadyLogin = (data) => {

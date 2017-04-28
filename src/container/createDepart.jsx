@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { CreateBranchComponent } from '../components'
+import { CreateDepartComponent } from '../components'
 import { BranchesActions } from '../store/actions'
 
 
-class CreateBranchContainer extends Component {
+class CreateDepartContainer extends Component {
     constructor() {
         super()
         this.state = {
-            branchName: '',
-            branchAddress: ''
+            departName: ''
         }
     }
     inputHandler(e) {
@@ -19,12 +18,12 @@ class CreateBranchContainer extends Component {
     }
     submit(e) {
         e.preventDefault();
-        this.props.newBranch(this.state)
+        this.props.newDepart(this.state)
     }
     render() {
         return (
             <div>
-                <CreateBranchComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreateDepartComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
@@ -38,8 +37,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newBranch: (branxh) => dispatch(BranchesActions.addData(branxh, "branches")),
+        newDepart: (depart) => dispatch(BranchesActions.addData(depart, "departments")),
         resutlFalse: () => dispatch(BranchesActions.setResultFalse())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBranchContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateDepartContainer)

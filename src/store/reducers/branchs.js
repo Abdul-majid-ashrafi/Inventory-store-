@@ -1,14 +1,14 @@
 import { BranchesActions } from "../actions";
 const initialState = {
     isLoading: false,
-    result: false,
+    isResult: false,
     // products: {},
     // productsDetail: {},
     // storesDetail: {},
     // stock: { headers: {}, value: {} },
     // store: {},
     isError: false,
-    error: {},
+    errorMSG: {},
     // data: [],
     // twoKeyList: []
 }
@@ -17,18 +17,21 @@ export const branchReducer = (state = initialState, action) => {
     let newState = state
     switch (action.type) {
         // Action handlers
-        case BranchesActions.SET_BRANCH:
+        case BranchesActions.SET_DATA:
             return Object.assign({}, state, { isLoading: true })
 
-        case BranchesActions.SET_BRANCH_SUCCESS:
+        case BranchesActions.SET_RESULT_FALSE:
+            return Object.assign({}, state, { isResult: false })
+
+        case BranchesActions.SET_DATA_SUCCESS:
             newState['isLoading'] = false;
-            newState['result'] = true
+            newState['isResult'] = true
             return Object.assign({}, state, newState)
 
-        case BranchesActions.SET_BRANCH_FAIL:
+        case BranchesActions.SET_DATA_FAIL:
             newState['isError'] = true;
             newState['isLoading'] = false
-            newState['error'] = action.payload
+            newState['errorMSG'] = action.payload
             return Object.assign({}, state, newState)
 
         // case 'GET_STORE':
