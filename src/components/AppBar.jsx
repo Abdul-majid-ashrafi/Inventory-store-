@@ -66,7 +66,9 @@ const container = {
                                             <Link to="/create_customer">
                                             <mat.MenuItem primaryText="Create Customer" style={{ color: "white" }} />
                                             </Link>
+                                            <Link to="/get_customer">
                                             <mat.MenuItem primaryText="All Customers" style={{ color: "white" }} />
+                                            </Link>
                                         </div>
                                     </mat.IconMenu>
 

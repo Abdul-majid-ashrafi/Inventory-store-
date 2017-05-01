@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CreateBranchComponent } from '../components'
-import { BranchesActions } from '../store/actions'
+import { BranchAndOtherActions } from '../store/actions'
 
 
 class CreateBranchContainer extends Component {
@@ -38,8 +38,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newBranch: (branxh) => dispatch(BranchesActions.addData(branxh, "branches")),
-        resutlFalse: () => dispatch(BranchesActions.setResultFalse())
+        newBranch: (branxh) => dispatch(BranchAndOtherActions.addBranch(branxh)),
+        resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CreateBranchContainer)

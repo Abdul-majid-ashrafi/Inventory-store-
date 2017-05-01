@@ -5,6 +5,7 @@ import CreateBranchContainer from './createBranch'
 import CreateDepartContainer from './createDepart'
 import CreateSupplierContainer from './createSupplier'
 import CreateCustomerContainer from './createCustomer'
+import AllCustomersContainer from './allCustomer'
 
 export {
     Signup,
@@ -13,6 +14,7 @@ export {
     CreateBranchContainer,
     CreateDepartContainer,
     CreateSupplierContainer,
-    CreateCustomerContainer
+    CreateCustomerContainer,
+    AllCustomersContainer
 
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CreateCustomerComponent } from '../components'
-import { BranchesActions } from '../store/actions'
+import { BranchAndOtherActions } from '../store/actions'
 
 
 class CreateCustomerContainer extends Component {
@@ -33,14 +33,14 @@ class CreateCustomerContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.branchReducer.isLoading,
-        isResult: state.branchReducer.isResult
+        isLoading: state.customerReducer.isLoading,
+        isResult: state.customerReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newCustomer: (customerInfo) => dispatch(BranchesActions.addData(customerInfo, "customer")),
-        resutlFalse: () => dispatch(BranchesActions.setResultFalse())
+        newCustomer: (customerInfo) => dispatch(BranchAndOtherActions.addCustomer(customerInfo)),
+        resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CreateCustomerContainer)

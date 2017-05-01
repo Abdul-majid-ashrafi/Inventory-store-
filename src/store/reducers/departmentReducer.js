@@ -1,34 +1,30 @@
-import { BranchesActions } from "../actions";
+import { BranchAndOtherActions } from '../actions'
 const initialState = {
     isLoading: false,
     isResult: false,
     // products: {},
     // productsDetail: {},
-    // storesDetail: {},
-    // stock: { headers: {}, value: {} },
-    // store: {},
     isError: false,
     errorMSG: {},
     // data: [],
     // twoKeyList: []
 }
-export const branchReducer = (state = initialState, action) => {
-    console.log(action)
+export const departReducer = (state = initialState, action) => {
     let newState = state
     switch (action.type) {
         // Action handlers
-        case BranchesActions.SET_DATA:
+        case BranchAndOtherActions.SET_DEPART:
             return Object.assign({}, state, { isLoading: true })
 
-        case BranchesActions.SET_RESULT_FALSE:
+        case BranchAndOtherActions.SET_RESULT_FALSE:
             return Object.assign({}, state, { isResult: false })
 
-        case BranchesActions.SET_DATA_SUCCESS:
+        case BranchAndOtherActions.SET_DEPART_SUCCESS:
             newState['isLoading'] = false;
             newState['isResult'] = true
             return Object.assign({}, state, newState)
 
-        case BranchesActions.SET_DATA_FAIL:
+        case BranchAndOtherActions.SET_DEPART_FAIL:
             newState['isError'] = true;
             newState['isLoading'] = false
             newState['errorMSG'] = action.payload

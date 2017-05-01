@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CreateSupplierComponent } from '../components'
-import { BranchesActions } from '../store/actions'
+import { BranchAndOtherActions } from '../store/actions'
 
 
 class CreateSupplierContainer extends Component {
@@ -33,14 +33,14 @@ class CreateSupplierContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.branchReducer.isLoading,
-        isResult: state.branchReducer.isResult
+        isLoading: state.supplierReducer.isLoading,
+        isResult: state.supplierReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newSupplier: (supplierInfo) => dispatch(BranchesActions.addData(supplierInfo, "suppliers")),
-        resutlFalse: () => dispatch(BranchesActions.setResultFalse())
+        newSupplier: (supplierInfo) => dispatch(BranchAndOtherActions.addSupplier(supplierInfo)),
+        resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CreateSupplierContainer)

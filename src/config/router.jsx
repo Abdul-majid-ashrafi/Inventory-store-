@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 import { Route, Router, browserHistory, IndexRoute } from "react-router";
-import { Signup, Signin, Home, CreateBranchContainer, CreateDepartContainer, CreateSupplierContainer, CreateCustomerContainer } from '../container'
+import {
+    Signup,
+    Signin,
+    Home,
+    CreateBranchContainer,
+    CreateDepartContainer,
+    CreateSupplierContainer,
+    CreateCustomerContainer,
+    AllCustomersContainer
+} from '../container'
 import { NavBar } from '../components'
 
 // material UI Component And Config
@@ -31,6 +40,7 @@ export class AllRoutes extends Component {
                                 <Route path="/create_branch_depart" component={CreateDepartContainer} />
                                 <Route path="/create_supplier" component={CreateSupplierContainer} />
                                 <Route path="/create_customer" component={CreateCustomerContainer} />
+                                <Route path="/get_customer" component={AllCustomersContainer} />
                             </Route>
                             {/*<Route path></Route>*/}
 

@@ -1,8 +1,8 @@
 import { AuthActions } from './auth'
-import { BranchesActions } from './branches'
+import { BranchAndOtherActions } from './addBranchAndOther'
 
 
 export {
     AuthActions,
-    BranchesActions
+    BranchAndOtherActions
 }

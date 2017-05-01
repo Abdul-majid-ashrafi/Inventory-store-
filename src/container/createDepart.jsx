@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CreateDepartComponent } from '../components'
-import { BranchesActions } from '../store/actions'
+import { BranchAndOtherActions } from '../store/actions'
 
 
 class CreateDepartContainer extends Component {
@@ -21,6 +21,7 @@ class CreateDepartContainer extends Component {
         this.props.newDepart(this.state)
     }
     render() {
+        // console.log(this.props)
         return (
             <div>
                 <CreateDepartComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
@@ -31,14 +32,14 @@ class CreateDepartContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.branchReducer.isLoading,
-        isResult: state.branchReducer.isResult
+        isLoading: state.departReducer.isLoading,
+        isResult: state.departReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newDepart: (depart) => dispatch(BranchesActions.addData(depart, "departments")),
-        resutlFalse: () => dispatch(BranchesActions.setResultFalse())
+        newDepart: (depart) => dispatch(BranchAndOtherActions.addDepart(depart)),
+        resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CreateDepartContainer)
