@@ -27,12 +27,12 @@ export class AllCustomersComponent extends Component {
             width: '70%',
             margin: '0 auto',
             background: 'darkCyan',
+            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const container = {
             width: '100%',
             margin: '0 auto',
             background: '#fff2e6',
-            color: 'white !important',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         return (
