@@ -1,22 +1,22 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-import { BranchAndOtherActions } from '../actions'
+// import { BranchAndOtherActions } from '../actions'
 
 
 export class BranchesEpic {
 
     static createBranche = (action$) =>
-        action$.ofType(BranchAndOtherActions.SET_BARANCH)
+        action$.ofType('SET_BARANCH')
             .switchMap(({ payload }) => {
                 return firebase.database().ref('/').child(`branches/${BranchesEpic.getLocalStorage().uid}`).push(payload)
                     .then((response) => {
                         return {
-                            type: BranchAndOtherActions.SET_BARANCH_SUCCESS
+                            type: 'SET_BARANCH_SUCCESS'
                         }
                     })
                     .catch((error) => {
                         return Observable.of({
-                            type: BranchAndOtherActions.SET_BARANCH_FAIL,
+                            type: 'SET_BARANCH_FAIL',
                             payload: error.code
                         })
                     })

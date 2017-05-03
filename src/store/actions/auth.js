@@ -1,8 +1,5 @@
 export class AuthActions {
 
-    constructor() {
-        alert()
-    }
     static REGISTER = 'REGISTER';
     static REGISTER_SUCCESS = 'REGISTER_SUCCESS';
     static REGISTER_FAIL = 'REGISTER_FAIL';

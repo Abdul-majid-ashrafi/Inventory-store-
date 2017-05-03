@@ -7,7 +7,7 @@ import { authReducer, branchReducer, departReducer, customerReducer, supplierRed
 // all Epic import
 import { AuthEpic, BranchesEpic, DepartmentEpic, CustomerEpic, SuppleirEpic } from './epics'
 
-const allReducer = combineReducers({
+const rootReducer = combineReducers({
     authReducer,
     branchReducer,
     departReducer,
@@ -22,13 +22,14 @@ const allEpics = combineEpics(
     BranchesEpic.createBranche,
     DepartmentEpic.createDepartment,
     CustomerEpic.createCustomer,
-    SuppleirEpic.createSupleir
+    SuppleirEpic.createSupleir,
+    CustomerEpic.getCustomer
 )
 
 const epicMiddleware = createEpicMiddleware(allEpics)
 
 export const store = createStore(
-    allReducer,
+    rootReducer,
     applyMiddleware(epicMiddleware)
 )
 // store.subscribe(() => { console.log(store.getState()) })

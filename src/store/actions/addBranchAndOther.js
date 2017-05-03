@@ -1,3 +1,4 @@
+import { store } from './../index'
 export class BranchAndOtherActions {
 
     static SET_BARANCH = 'SET_BARANCH';
@@ -17,9 +18,9 @@ export class BranchAndOtherActions {
     static SET_DEPART_SUCCESS = 'SET_DEPART_SUCCESS';
     static SET_DEPART_FAIL = 'SET_DEPART_FAIL';
 
-    static GET_DATA = 'GET_DATA';
-    static GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
-    static GET_DATA_FAIL = 'GET_DATA_FAIL';
+    static GET_CUSTOMER = 'GET_CUSTOMER';
+    static GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
+    static GET_CUSTOMER_FAIL = 'GET_CUSTOMER_FAIL';
 
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -69,10 +70,19 @@ export class BranchAndOtherActions {
         }
     }
 
-    static getData = (q) => {
-        return {
-            type: BranchAndOtherActions.GET_DATA
-        }
+    // Get all customers
+    // static getCustomers = () => {
+    //     return {
+    //         type: BranchAndOtherActions.GET_CUSTOMER
+    //     }
+    // }
+    static getAllCustomers = (payload) => {
+        store.dispatch(
+            {
+                type: BranchAndOtherActions.GET_CUSTOMER_SUCCESS,
+                payload: payload
+            }
+        )
     }
     // static alreadyLogin = (data) => {
     //     return {

@@ -1,4 +1,4 @@
-import { BranchAndOtherActions } from '../actions'
+// import { BranchAndOtherActions } from '../actions'
 const initialState = {
     isLoading: false,
     isResult: false,
@@ -13,18 +13,18 @@ export const departReducer = (state = initialState, action) => {
     let newState = state
     switch (action.type) {
         // Action handlers
-        case BranchAndOtherActions.SET_DEPART:
+        case 'SET_DEPART':
             return Object.assign({}, state, { isLoading: true })
 
-        case BranchAndOtherActions.SET_RESULT_FALSE:
+        case 'SET_RESULT_FALSE':
             return Object.assign({}, state, { isResult: false })
 
-        case BranchAndOtherActions.SET_DEPART_SUCCESS:
+        case 'SET_DEPART_SUCCESS':
             newState['isLoading'] = false;
             newState['isResult'] = true
             return Object.assign({}, state, newState)
 
-        case BranchAndOtherActions.SET_DEPART_FAIL:
+        case 'SET_DEPART_FAIL':
             newState['isError'] = true;
             newState['isLoading'] = false
             newState['errorMSG'] = action.payload

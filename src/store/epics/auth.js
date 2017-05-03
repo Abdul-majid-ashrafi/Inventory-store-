@@ -1,38 +1,38 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-import { AuthActions } from '../actions'
+// import { AuthActions } from '../actions'
 
 
 export class AuthEpic {
 
     static register = (action$) =>
-        action$.ofType(AuthActions.REGISTER)
+        action$.ofType('REGISTER')
             .switchMap(({ payload }) => {
                 return firebase.auth().createUserWithEmailAndPassword(payload.email, payload.pass)
                     .then((response) => {
                         payload.uid = response.uid
                         return firebase.database().ref(`/users/${response.uid}`).set(payload).then(() => {
                             return {
-                                type: AuthActions.REGISTER_SUCCESS,
+                                type: 'REGISTER_SUCCESS',
                                 payload: payload
                             }
                         })
                     })
                     .catch((error) => {
                         return {
-                            type: AuthActions.REGISTER_FAIL,
+                            type: 'REGISTER_FAIL',
                             payload: error.code
                         }
                     })
             })
 
     static login = (action$) =>
-        action$.ofType(AuthActions.LOGIN)
+        action$.ofType('LOGIN')
             .switchMap(({ credentials }) => {
                 return Observable.fromPromise(firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.pass))
                     .catch(err => {
                         return Observable.of({
-                            type: AuthActions.LOGIN_FAIL,
+                            type: 'LOGIN_FAIL',
                             payload: err
                         });
                     })
@@ -44,9 +44,10 @@ export class AuthEpic {
                                     let obj = {}
                                     obj["uid"] = res.uid
                                     obj = Object.assign({}, obj, data.val())
+                                    delete obj['pass']
                                     AuthEpic.setLocalStorage(obj)
                                     return {
-                                        type: AuthActions.LOGIN_SUCCESS,
+                                        type: 'LOGIN_SUCCESS',
                                         payload: obj
                                     }
                                 })
@@ -54,7 +55,7 @@ export class AuthEpic {
                             console.log('error wala', res)
                             // error
                             return Observable.of({
-                                type: AuthActions.LOGIN_FAIL,
+                                type: 'LOGIN_FAIL',
                                 payload: res.payload.code
                             });
                         }
@@ -63,10 +64,10 @@ export class AuthEpic {
 
 
     static alreadyLoggedIn(action$) {
-        return action$.ofType(AuthActions.ALREADY_LOGGEDIN)
+        return action$.ofType('ALREADY_LOGGEDIN')
             .switchMap((payload) => {
                 return Observable.of({
-                    type: AuthActions.LOGIN_SUCCESS,
+                    type: 'LOGIN_SUCCESS',
                     payload: AuthEpic.getLocalStorage()
                 })
             })
@@ -104,11 +105,11 @@ export class AuthEpic {
 
 
     // static register = (action$) =>
-    //     action$.ofType(AuthActions.REGISTER)
+    //     action$.ofType('REGISTER')
     //         .switchMap(({ payload }) => {
     //             console.log(payload)
     //             return Observable.of({
-    //                 type: AuthActions.REGISTER_SUCCESS,
+    //                 type: 'REGISTER_SUCCESS',
     //                 // payload: payload
     //             });
     //         })
