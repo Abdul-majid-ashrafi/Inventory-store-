@@ -41,7 +41,7 @@ export const customerReducer = (state = initialState, action) => {
 
         case 'GET_CUSTOMER_SUCCESS':
             newState['customers'] = Object.assign({}, action.payload);
-            newState['isResult'] = true
+            // newState['isResult'] = true
             return Object.assign({}, state, newState)
 
         case 'GET_CUSTOMER_FAIL':

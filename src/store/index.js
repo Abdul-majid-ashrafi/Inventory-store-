@@ -23,7 +23,8 @@ const allEpics = combineEpics(
     DepartmentEpic.createDepartment,
     CustomerEpic.createCustomer,
     SuppleirEpic.createSupleir,
-    CustomerEpic.getCustomer
+    CustomerEpic.getCustomer,
+    SuppleirEpic.getSuppleir
 )
 
 const epicMiddleware = createEpicMiddleware(allEpics)

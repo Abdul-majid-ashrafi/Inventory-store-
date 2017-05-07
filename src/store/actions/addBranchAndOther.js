@@ -22,6 +22,10 @@ export class BranchAndOtherActions {
     static GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
     static GET_CUSTOMER_FAIL = 'GET_CUSTOMER_FAIL';
 
+    static GET_SUPPLEIR = 'GET_SUPPLEIR';
+    static GET_SUPPLEIR_SUCCESS = 'GET_SUPPLEIR_SUCCESS';
+    static GET_SUPPLEIR_FAIL = 'GET_SUPPLEIR_FAIL';
+
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
     // static ALREADY_LOGGEDIN = 'ALREADY_LOGGEDIN';
@@ -80,6 +84,15 @@ export class BranchAndOtherActions {
         store.dispatch(
             {
                 type: BranchAndOtherActions.GET_CUSTOMER_SUCCESS,
+                payload: payload
+            }
+        )
+    }
+    
+    static getAllSuppleirs = (payload) => {
+        store.dispatch(
+            {
+                type: BranchAndOtherActions.GET_SUPPLEIR_SUCCESS,
                 payload: payload
             }
         )

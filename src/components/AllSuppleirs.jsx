@@ -2,22 +2,23 @@ import React, { Component } from 'react'
 import * as mat from 'material-ui';
 // import { browserHistory } from 'react-router'
 
-export class AllCustomersComponent extends Component {
+export class AllSupplierComponent extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            customerArray: []
+            supplierArray: []
         }
     }
     componentWillMount() {
-        let customers = this.props.isCustomers.customers;
+        console.log(this.props.isSupplier)
+        let supplier = this.props.isSupplier.suppleir;
         let vm = this
-        Object.keys(customers).forEach(function (key) {
-            var obj = customers[key]
+        Object.keys(supplier).forEach(function (key) {
+            var obj = supplier[key]
             obj.id = key
-            vm.state.customerArray.push(obj)
-            vm.setState({ customerArray: vm.state.customerArray })
+            vm.state.supplierArray.push(obj)
+            vm.setState({ supplierArray: vm.state.supplierArray })
         });
     }
 
@@ -30,7 +31,7 @@ export class AllCustomersComponent extends Component {
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const container = {
-            textAlign: 'center',
+            textAlign : 'center',
             width: '100%',
             margin: '0 auto',
             background: '#fff2e6',
@@ -40,7 +41,7 @@ export class AllCustomersComponent extends Component {
             <div style={container}>
                 <br />
                 <br />
-                <h1>Customers</h1>
+                <h1>Suppleir</h1>
                 <mat.Table style={center}>
                     <mat.TableBody displayRowCheckbox={false}>
                         <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
@@ -49,12 +50,12 @@ export class AllCustomersComponent extends Component {
                             <mat.TableRowColumn>Address</mat.TableRowColumn>
                         </mat.TableRow>
 
-                        {this.state.customerArray.map((value, index) => {
+                        {this.state.supplierArray.map((value, index) => {
                             return (
                                 <mat.TableRow style={{ color: 'white' }} key={index}>
-                                    <mat.TableRowColumn>{value.customerName}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerNumber}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerAddress}</mat.TableRowColumn>
+                                    <mat.TableRowColumn>{value.supplierName}</mat.TableRowColumn>
+                                    <mat.TableRowColumn>{value.supplierNumber}</mat.TableRowColumn>
+                                    <mat.TableRowColumn>{value.supplierAddress}</mat.TableRowColumn>
                                 </mat.TableRow>
                             )
                         })}

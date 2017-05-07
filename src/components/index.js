@@ -7,6 +7,9 @@ import { CreateDepartComponent } from './CreateDepart'
 import { CreateSupplierComponent } from './CreateSupplier'
 import { CreateCustomerComponent } from './CreateCustomer'
 import { AllCustomersComponent } from './AllCustomers'
+import { AllSupplierComponent } from './AllSuppleirs'
+// import { AllDepartmentsComponent } from './AllDepartments'
+import { CreateProductComponent } from './CreateProduct'
 export {
     SignUpFrom,
     SignInFrom,
@@ -16,5 +19,8 @@ export {
     CreateDepartComponent,
     CreateSupplierComponent,
     CreateCustomerComponent,
-    AllCustomersComponent
+    AllCustomersComponent,
+    AllSupplierComponent,
+    // AllDepartmentsComponent
+    CreateProductComponent
 }

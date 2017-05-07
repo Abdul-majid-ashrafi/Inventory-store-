@@ -2,7 +2,7 @@
 const initialState = {
     isLoading: false,
     isResult: false,
-    // products: {},
+    suppleir: {},
     // productsDetail: {},
     isError: false,
     errorMSG: {},
@@ -30,12 +30,14 @@ export const supplierReducer = (state = initialState, action) => {
             newState['errorMSG'] = action.payload
             return Object.assign({}, state, newState)
 
-        // case 'GET_STORE':
-        //     return Object.assign({}, state, { isLoading: true })
 
-        // case 'GET_STORE_SUCCESS':
-        //     newState = Object.assign({}, state.store);
-        //     newState = action.payload;
+        case 'GET_SUPPLEIR_SUCCESS':
+            newState['suppleir'] = Object.assign({}, action.payload);
+            // newState['isResult'] = true
+            return Object.assign({}, state, newState)
+
+        case 'GET_SUPPLEIR_FAIL':
+            return Object.assign({}, state, { isLoading: false })
 
         //     return Object.assign({}, state, { isLoading: false, store: newState })
         // case 'GET_STORE_FAIL':

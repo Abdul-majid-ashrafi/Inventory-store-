@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
+import { BranchAndOtherActions } from '../actions'
 
 
 export class SuppleirEpic {
@@ -22,8 +22,30 @@ export class SuppleirEpic {
                     })
             })
 
+    // Get all customers on firebase database through user uid 
+    static getSuppleir = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`suppleirs/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllSuppleirs(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_SUPPLIER_FAIL',
+                    // payload: {}
+                })
+
+            })
+    }
+
+
+
     static getLocalStorage() {
         return JSON.parse(localStorage.getItem('store'));
     }
+
 }
 
