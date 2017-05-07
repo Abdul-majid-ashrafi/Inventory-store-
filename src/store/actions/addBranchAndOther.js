@@ -18,6 +18,11 @@ export class BranchAndOtherActions {
     static SET_DEPART_SUCCESS = 'SET_DEPART_SUCCESS';
     static SET_DEPART_FAIL = 'SET_DEPART_FAIL';
 
+    static SET_PRODUCT = 'SET_PRODUCT';
+    static SET_PRODUCT_SUCCESS = 'SET_PRODUCT_SUCCESS';
+    static SET_PRODUCT_FAIL = 'SET_PRODUCT_FAIL';
+    static SET_RESULT_FALSE = 'SET_RESULT_FALSE';
+
     static GET_CUSTOMER = 'GET_CUSTOMER';
     static GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
     static GET_CUSTOMER_FAIL = 'GET_CUSTOMER_FAIL';
@@ -74,6 +79,15 @@ export class BranchAndOtherActions {
         }
     }
 
+    // CREATE PRODUCT ACTION
+    static addProduct = (obj) => {
+        console.log("in action side ", obj)
+        return {
+            type: BranchAndOtherActions.SET_PRODUCT,
+            payload: obj
+        }
+    }
+
     // Get all customers
     // static getCustomers = () => {
     //     return {
@@ -88,7 +102,7 @@ export class BranchAndOtherActions {
             }
         )
     }
-    
+
     static getAllSuppleirs = (payload) => {
         store.dispatch(
             {
