@@ -9,7 +9,7 @@ class CreateProductContainer extends Component {
         super()
         this.state = {
             productName: '',
-            description: ''
+            description: 'null'
         }
     }
     inputHandler(e) {
@@ -19,8 +19,8 @@ class CreateProductContainer extends Component {
     }
     submit(e) {
         e.preventDefault();
-        console.log(this.state)
-        // this.props.newProduct(this.state)
+        // console.log(this.state)
+        this.props.newProduct(this.state)
     }
     render() {
         // console.log(this.props)
@@ -40,8 +40,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        // newProduct: (depart) => dispatch(BranchAndOtherActions.addDepart(depart)),
-        // resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
+        newProduct: (product) => dispatch(BranchAndOtherActions.addProduct(product)),
+        resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CreateProductContainer)
