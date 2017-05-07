@@ -8,7 +8,8 @@ class CreateProductContainer extends Component {
     constructor() {
         super()
         this.state = {
-            productName: ''
+            productName: '',
+            description: ''
         }
     }
     inputHandler(e) {

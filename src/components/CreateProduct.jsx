@@ -10,8 +10,8 @@ export class CreateProductComponent extends Component {
         };
     }
     handleRequestClose = () => {
-        this.props.changeResult()
-        browserHistory.push('/home')
+        // this.props.changeResult()
+        // browserHistory.push('/home')
     };
 
     render() {
@@ -32,6 +32,14 @@ export class CreateProductComponent extends Component {
                             hintText="Product Name"
                             name="productName"
                             value={this.props.state.productName}
+                            onChange={this.props._inputHandler}
+                            required fullWidth autoFocus
+                        /><br />
+                        <br />
+                        <mat.TextField
+                            hintText="Description"
+                            name="description"
+                            value={this.props.state.description}
                             onChange={this.props._inputHandler}
                             required fullWidth autoFocus
                         /><br />
