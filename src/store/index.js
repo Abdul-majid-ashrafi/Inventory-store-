@@ -21,13 +21,14 @@ const allEpics = combineEpics(
     AuthEpic.login,
     AuthEpic.alreadyLoggedIn,
     BranchesEpic.createBranche,
+    BranchesEpic.getBranch,
     DepartmentEpic.createDepartment,
     CustomerEpic.createCustomer,
     SuppleirEpic.createSupleir,
     CustomerEpic.getCustomer,
     SuppleirEpic.getSuppleir,
     ProductEpic.createProduct,
-    ProductEpic.getProduct
+    ProductEpic.getProduct,
 )
 
 const epicMiddleware = createEpicMiddleware(allEpics)
