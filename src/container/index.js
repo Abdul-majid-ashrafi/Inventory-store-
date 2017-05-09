@@ -9,6 +9,7 @@ import AllCustomersContainer from './allCustomer'
 import AllSuppleirContainer from './allSuppleirs'
 // import AllDepartmentContainer from './allDepartments'
 import CreateProductContainer from './createProduct'
+import AllProductsContainer from './allProduct'
 
 export {
     Signup,
@@ -21,6 +22,7 @@ export {
     AllCustomersContainer,
     AllSuppleirContainer,
     // AllDepartmentContainer
-    CreateProductContainer
+    CreateProductContainer,
+    AllProductsContainer
 
 }

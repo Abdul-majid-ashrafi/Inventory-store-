@@ -10,6 +10,7 @@ import { AllCustomersComponent } from './AllCustomers'
 import { AllSupplierComponent } from './AllSuppleirs'
 // import { AllDepartmentsComponent } from './AllDepartments'
 import { CreateProductComponent } from './CreateProduct'
+import { AllProductsComponent } from './AllProducts'
 export {
     SignUpFrom,
     SignInFrom,
@@ -22,5 +23,6 @@ export {
     AllCustomersComponent,
     AllSupplierComponent,
     // AllDepartmentsComponent
-    CreateProductComponent
+    CreateProductComponent,
+    AllProductsComponent
 }
