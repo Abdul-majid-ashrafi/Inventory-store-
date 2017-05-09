@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
+import { BranchAndOtherActions } from '../actions'
 
 
 export class BranchesEpic {
@@ -21,6 +21,26 @@ export class BranchesEpic {
                         })
                     })
             })
+
+            
+    // Get all Branch on firebase database through user uid 
+    static getBranch = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`branches/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllBranch(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_PRODUCT_FAIL',
+                    // payload: {}
+                })
+            })
+    }
+
 
     static getLocalStorage() {
         return JSON.parse(localStorage.getItem('store'));
