@@ -19,11 +19,9 @@ class CreateProductContainer extends Component {
     }
     submit(e) {
         e.preventDefault();
-        // console.log(this.state)
         this.props.newProduct(this.state)
     }
     render() {
-        // console.log(this.props)
         return (
             <div>
                 <CreateProductComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
@@ -34,8 +32,8 @@ class CreateProductContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoading: state.departReducer.isLoading,
-        isResult: state.departReducer.isResult
+        isLoading: state.productReducer.isLoading,
+        isResult: state.productReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {
