@@ -34,9 +34,11 @@ export class BranchAndOtherActions {
     static GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
     static GET_PRODUCT_FAIL = 'GET_PRODUCT_FAIL';
 
-    static GET_BRANCH_SUCCESS = "GET_BRANCH_SUCCESS"
+    static GET_BARANCH_SUCCESS = "GET_BARANCH_SUCCESS"
+    static GET_BRANCE_FAIL = 'GET_BRANCE_FAIL'
 
     static GET_DEPART_SUCCESS = "GET_DEPART_SUCCESS"
+    static GET_DEPARTMENT_FAIL = 'GET_DEPARTMENT_FAIL'
 
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
@@ -128,7 +130,7 @@ export class BranchAndOtherActions {
     static getAllBranch = (payload) => {
         store.dispatch(
             {
-                type: BranchAndOtherActions.GET_BRANCH_SUCCESS,
+                type: BranchAndOtherActions.GET_BARANCH_SUCCESS,
                 payload: payload
             }
         )
