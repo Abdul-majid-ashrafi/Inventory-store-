@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import * as mat from 'material-ui';
-// import { browserHistory } from 'react-router'
 
 export class AllCustomersComponent extends Component {
 
