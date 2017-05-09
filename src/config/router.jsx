@@ -11,7 +11,8 @@ import {
     AllCustomersContainer,
     AllSuppleirContainer,
     // AllDepartmentContainer
-    CreateProductContainer
+    CreateProductContainer,
+    AllProductsContainer
 } from '../container'
 import { NavBar } from '../components'
 
@@ -45,6 +46,7 @@ export class AllRoutes extends Component {
                                 <Route path="/create_customer" component={CreateCustomerContainer} />
                                 <Route path="/get_customer" component={AllCustomersContainer} />
                                 <Route path="/get_suppleirs" component={AllSuppleirContainer} />
+                                <Route path="/get_product" component={AllProductsContainer} />
                                 {/*<Route path="/get_depart" component={AllDepartmentContainer} />*/}
                                 <Route path="/add_product" component={CreateProductContainer} />
                             </Route>
