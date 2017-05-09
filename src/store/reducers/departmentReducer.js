@@ -2,7 +2,7 @@
 const initialState = {
     isLoading: false,
     isResult: false,
-    // products: {},
+    departments: {},
     // productsDetail: {},
     isError: false,
     errorMSG: {},
@@ -33,11 +33,9 @@ export const departReducer = (state = initialState, action) => {
         // case 'GET_STORE':
         //     return Object.assign({}, state, { isLoading: true })
 
-        // case 'GET_STORE_SUCCESS':
-        //     newState = Object.assign({}, state.store);
-        //     newState = action.payload;
-
-        //     return Object.assign({}, state, { isLoading: false, store: newState })
+        case 'GET_DEPART_SUCCESS':
+            newState['departments'] = Object.assign({}, action.payload);
+            return Object.assign({}, state, newState)
         // case 'GET_STORE_FAIL':
         //     return Object.assign({}, state, { isLoading: false })
 
