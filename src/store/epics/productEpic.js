@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
+import { BranchAndOtherActions } from '../actions'
 
 export class ProductEpic {
 
@@ -23,25 +23,22 @@ export class ProductEpic {
             })
 
     // Get all Products on firebase database through user uid 
-    // static getProduct = (action$) => {
-    //     return action$.ofType('LOGIN_SUCCESS')
-    //         .switchMap(({ payload }) => {
-    //             if (payload) {
-    //                 firebase.database().ref('/').child(`customer/${payload.uid}`).on("value", (snapshot) => {
-    //                     if (snapshot.val()) {
-    //                         BranchAndOtherActions.getAllCustomers(snapshot.val())
-    //                     }
-    //                 })
-    //             }
-    //             return Observable.of({
-    //                 type: 'GET_CUSTOMER_FAIL',
-    //                 // payload: {}
-    //             })
-
-    //         })
-
-    // }
-
+    static getProduct = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`product/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllProduct(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_PRODUCT_FAIL',
+                    // payload: {}
+                })
+            })
+    }
 
     static getLocalStorage() {
         return JSON.parse(localStorage.getItem('store'));
