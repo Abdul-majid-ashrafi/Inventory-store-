@@ -30,6 +30,10 @@ export class BranchAndOtherActions {
     static GET_SUPPLEIR_SUCCESS = 'GET_SUPPLEIR_SUCCESS';
     static GET_SUPPLEIR_FAIL = 'GET_SUPPLEIR_FAIL';
 
+    static GET_PRODUCT = 'GET_PRODUCT';
+    static GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS';
+    static GET_PRODUCT_FAIL = 'GET_PRODUCT_FAIL';
+
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
     // static ALREADY_LOGGEDIN = 'ALREADY_LOGGEDIN';
@@ -87,11 +91,6 @@ export class BranchAndOtherActions {
     }
 
     // Get all customers
-    // static getCustomers = () => {
-    //     return {
-    //         type: BranchAndOtherActions.GET_CUSTOMER
-    //     }
-    // }
     static getAllCustomers = (payload) => {
         store.dispatch(
             {
@@ -101,6 +100,7 @@ export class BranchAndOtherActions {
         )
     }
 
+    // Get all suppliers
     static getAllSuppleirs = (payload) => {
         store.dispatch(
             {
@@ -109,23 +109,14 @@ export class BranchAndOtherActions {
             }
         )
     }
-    // static alreadyLogin = (data) => {
-    //     return {
-    //         type: AuthActions.ALREADY_LOGGEDIN,
-    //         payload: data
-    //     }
-    // }
 
-    // static login = (credential) => {
-    //     return {
-    //         type: AuthActions.LOGIN,
-    //         credentials: credential
-    //     }
-    // }
-
-    // static logout = () => {
-    //     return {
-    //         type: AuthActions.LOGOUT
-    //     }
-    // }
+    // Get all Product
+    static getAllProduct = (payload) => {
+        store.dispatch(
+            {
+                type: BranchAndOtherActions.GET_PRODUCT_SUCCESS,
+                payload: payload
+            }
+        )
+    }
 }
