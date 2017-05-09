@@ -2,7 +2,7 @@
 const initialState = {
     isLoading: false,
     isResult: false,
-    // products: {},
+    branches: {},
     // productsDetail: {},
     isError: false,
     errorMSG: {},
@@ -33,11 +33,10 @@ export const branchReducer = (state = initialState, action) => {
         // case 'GET_STORE':
         //     return Object.assign({}, state, { isLoading: true })
 
-        // case 'GET_STORE_SUCCESS':
-        //     newState = Object.assign({}, state.store);
-        //     newState = action.payload;
+        case 'GET_BARANCH_SUCCESS':
+            newState['branches'] = Object.assign({}, action.payload);
+            return Object.assign({}, state, newState)
 
-        //     return Object.assign({}, state, { isLoading: false, store: newState })
         // case 'GET_STORE_FAIL':
         //     return Object.assign({}, state, { isLoading: false })
 
