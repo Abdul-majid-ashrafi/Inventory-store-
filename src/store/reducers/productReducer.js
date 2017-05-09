@@ -5,7 +5,7 @@ const initialState = {
     // productsDetail: {},
     // storesDetail: {},
     // stock: { headers: {}, value: {} },
-    PRODUCT: {},
+    products: {},
     isError: false,
     errorMSG: {},
     // data: [],
@@ -35,16 +35,15 @@ export const productReducer = (state = initialState, action) => {
             return Object.assign({}, state, newState)
 
         // Get PRODUCTs actions
-        // case 'GET_PRODUCT':
-        //     return Object.assign({}, state, { isLoading: true })
+        case 'GET_PRODUCT':
+            return Object.assign({}, state, { isLoading: true })
 
-        // case 'GET_PRODUCT_SUCCESS':
-        //     newState['PRODUCT'] = Object.assign({}, action.payload);
-        //     // newState['isResult'] = true
-        //     return Object.assign({}, state, newState)
+        case 'GET_PRODUCT_SUCCESS':
+            newState['products'] = Object.assign({}, action.payload);
+            return Object.assign({}, state, newState)
 
-        // case 'GET_PRODUCT_FAIL':
-        //     return Object.assign({}, state, { isLoading: false })
+        case 'GET_PRODUCT_FAIL':
+            return Object.assign({}, state, { isLoading: false })
 
         default:
             return state;
