@@ -3,7 +3,7 @@ import { BranchesEpic } from './branchEpic'
 import { DepartmentEpic } from './departEpic'
 import { CustomerEpic } from './customerEpic'
 import { SuppleirEpic } from './suppleirEpic'
-// import {} from './'
+import { ProductEpic } from './productEpic'
 // import {} from './'
 
 export {
@@ -11,5 +11,6 @@ export {
     BranchesEpic,
     DepartmentEpic,
     CustomerEpic,
-    SuppleirEpic
+    SuppleirEpic,
+    ProductEpic
 }
