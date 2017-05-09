@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { AllCustomersComponent } from '../components'
+import { AllProductsComponent } from '../components'
 
 
 class AllProductsContainer extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
-                <AllCustomersComponent isCustomers={this.props.isCustomers} />
+                <AllProductsComponent isProducts={this.props.isProducts} />
             </div>
         );
     }
@@ -16,7 +17,7 @@ class AllProductsContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        // isCustomers: state.customerReducer,
+        isProducts: state.productReducer,
     }
 }
-export default connect(mapStateToProps, null)(AllCustomersContainer)
+export default connect(mapStateToProps, null)(AllProductsContainer)

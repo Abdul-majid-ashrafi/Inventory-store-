@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { combineEpics, createEpicMiddleware } from 'redux-observable'
 
 // all reducer import
-import { authReducer, branchReducer, departReducer, customerReducer, supplierReducer ,productReducer } from './reducers'
+import { authReducer, branchReducer, departReducer, customerReducer, supplierReducer, productReducer } from './reducers'
 
 // all Epic import
-import { AuthEpic, BranchesEpic, DepartmentEpic, CustomerEpic, SuppleirEpic,ProductEpic } from './epics'
+import { AuthEpic, BranchesEpic, DepartmentEpic, CustomerEpic, SuppleirEpic, ProductEpic } from './epics'
 
 const rootReducer = combineReducers({
     authReducer,
@@ -26,7 +26,8 @@ const allEpics = combineEpics(
     SuppleirEpic.createSupleir,
     CustomerEpic.getCustomer,
     SuppleirEpic.getSuppleir,
-    ProductEpic.createProduct
+    ProductEpic.createProduct,
+    ProductEpic.getProduct
 )
 
 const epicMiddleware = createEpicMiddleware(allEpics)
