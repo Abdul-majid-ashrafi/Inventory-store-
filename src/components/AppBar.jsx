@@ -82,7 +82,9 @@ class NavBar extends Component {
                                         <div style={header}>
                                             <mat.MenuItem primaryText="New Sale" style={{ color: "white" }} />
                                             <mat.MenuItem primaryText="View Sales" style={{ color: "white" }} />
+                                            <Link to="/add_purchase">
                                             <mat.MenuItem primaryText="New Purchase" style={{ color: "white" }} />
+                                            </Link>
                                             <mat.MenuItem primaryText="View Purchases" style={{ color: "white" }} />
                                             <Link to="/add_product">
                                                 <mat.MenuItem primaryText="New Product" style={{ color: "white" }} />
