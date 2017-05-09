@@ -8,8 +8,12 @@ class CreatePurchaseContainer extends Component {
     constructor() {
         super()
         this.state = {
-            branchName: '',
-            branchAddress: ''
+            ProductName: '',
+            price: '',
+            quantity: '',
+            branch: '',
+            department: '',
+            supplier: ''
         }
     }
     inputHandler(e) {
@@ -19,11 +23,16 @@ class CreatePurchaseContainer extends Component {
     }
     submit(e) {
         e.preventDefault();
+        console.log(this.state)
+        // console.log(this.state)
+        //   var SelectedProduct = this.refs.store.value;
+        // console.log("productName",SelectedProduct);
         // this.props.newBranch(this.state)
     }
     render() {
         return (
             <div>
+                
                 <CreatePurchaseComponent changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
