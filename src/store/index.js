@@ -23,6 +23,7 @@ const allEpics = combineEpics(
     BranchesEpic.createBranche,
     BranchesEpic.getBranch,
     DepartmentEpic.createDepartment,
+    DepartmentEpic.getDepartment,
     CustomerEpic.createCustomer,
     SuppleirEpic.createSupleir,
     CustomerEpic.getCustomer,
