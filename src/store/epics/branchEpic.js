@@ -35,7 +35,7 @@ export class BranchesEpic {
                     })
                 }
                 return Observable.of({
-                    type: 'GET_PRODUCT_FAIL',
+                    type: 'GET_BRANCE_FAIL',
                     // payload: {}
                 })
             })
