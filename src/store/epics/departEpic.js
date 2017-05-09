@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
+import { BranchAndOtherActions } from '../actions'
 
 
 export class DepartmentEpic {
@@ -22,6 +22,24 @@ export class DepartmentEpic {
                     })
             })
 
+    // Get all Department on firebase database through user uid 
+    static getDepartment = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`departments/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllDepart(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_DEPARTMENT_FAIL',
+                    // payload: {}
+                })
+
+            })
+    }
     static getLocalStorage() {
         return JSON.parse(localStorage.getItem('store'));
     }
