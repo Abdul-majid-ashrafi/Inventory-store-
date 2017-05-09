@@ -3,6 +3,7 @@ import { branchReducer } from './branchReducer'
 import { departReducer } from './departmentReducer'
 import { customerReducer } from './customerReducer'
 import { supplierReducer } from './suppleirReducer'
+import { productReducer } from './productReducer'
 
 
 export {
@@ -10,5 +11,6 @@ export {
     branchReducer,
     departReducer,
     customerReducer,
-    supplierReducer
+    supplierReducer,
+    productReducer
 }
