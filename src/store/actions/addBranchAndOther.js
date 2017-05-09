@@ -21,7 +21,6 @@ export class BranchAndOtherActions {
     static SET_PRODUCT = 'SET_PRODUCT';
     static SET_PRODUCT_SUCCESS = 'SET_PRODUCT_SUCCESS';
     static SET_PRODUCT_FAIL = 'SET_PRODUCT_FAIL';
-    static SET_RESULT_FALSE = 'SET_RESULT_FALSE';
 
     static GET_CUSTOMER = 'GET_CUSTOMER';
     static GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
@@ -81,7 +80,6 @@ export class BranchAndOtherActions {
 
     // CREATE PRODUCT ACTION
     static addProduct = (obj) => {
-        console.log("in action side ", obj)
         return {
             type: BranchAndOtherActions.SET_PRODUCT,
             payload: obj
