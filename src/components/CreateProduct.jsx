@@ -11,7 +11,7 @@ export class CreateProductComponent extends Component {
     }
     handleRequestClose = () => {
         this.props.changeResult()
-        // browserHistory.push('/home')
+        browserHistory.push('/home')
     };
 
     render() {
