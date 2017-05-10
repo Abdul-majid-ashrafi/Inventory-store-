@@ -48,7 +48,6 @@ export class CreatePurchaseComponent extends Component {
             vm.state.departArray.push(obj)
             vm.setState({ departArray: vm.state.departArray })
         });
-        console.log(this.state)
     }
 
 
@@ -90,8 +89,8 @@ export class CreatePurchaseComponent extends Component {
                     <form onSubmit={this.props._submit}>
                         <mat.TextField
                             hintText=" Each price"
-                            name="price"
-                            value={this.props.state.price}
+                            name="eachPrice"
+                            value={this.props.state.eachPrice}
                             onChange={this.props._inputHandler}
                             required fullWidth autoFocus
                         /><br />
@@ -103,47 +102,57 @@ export class CreatePurchaseComponent extends Component {
                             required fullWidth
                         />
                         <br />
+                        {(this.props.state.totalPrice) ?
+                            <div style={dropDownStyle}>
+                                <label style={{ fontSize: 21 }}>Total Price</label>
+                                <b style={style}> {this.props.state.totalPrice}</b>
+                            </div>
+                            : ''}
 
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
 
                             {this.state.productArray.map((value, index) => {
                                 return (
-                                    <select style={style} required name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName} key={index}>
-                                        <option value={value.productName}> {value.productName} </option>
+                                    <select style={style} name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName} key={index}>
+                                        <option value={'not selected'}>  Not selected</option>
+                                        <option value={JSON.stringify(value)}> {value.productName} </option>
                                     </select>
                                 )
                             })}
                             <br />
                         </div>
                         <div style={dropDownStyle}>
-                            <label style={{ fontSize: 21 }}>Select Branch</label>
+                            <label style={{ fontSize: 21 }}>Branch</label>
                             {this.state.branchArray.map((value, index) => {
                                 return (
-                                    <select style={style} required name="branch" onChange={this.props._inputHandler} value={this.props.state.branch} key={index}>
-                                        <option value={value.branchName}> {value.branchName} </option>
+                                    <select style={style} name="branch" onChange={this.props._inputHandler} value={this.props.state.branch} key={index}>
+                                        <option value={'not selected'}> Not selected</option>
+                                        <option value={value.branchName} > {value.branchName} </option>
                                     </select>
                                 )
                             })}
                             <br />
                         </div>
                         <div style={dropDownStyle}>
-                            <label style={{ fontSize: 21 }}>Select Depart</label>
+                            <label style={{ fontSize: 21 }}>Depart</label>
                             {this.state.departArray.map((value, index) => {
                                 return (
-                                    <select style={style} required name="department" onChange={this.props._inputHandler} value={this.props.state.department} key={index}>
-                                        <option value={value.departName}> {value.departName} </option>
+                                    <select style={style} name="department" onChange={this.props._inputHandler} value={this.props.state.department} key={index}>
+                                        <option value={'not selected'}>   Not selected </option>
+                                        <option value={value.departName} > {value.departName} </option>
                                     </select>
                                 )
                             })}
                             <br />
                         </div>
                         <div style={dropDownStyle}>
-                            <label style={{ fontSize: 21 }}>Select Supplier</label>
+                            <label style={{ fontSize: 21 }}>Supplier</label>
 
                             {this.state.supplierArray.map((value, index) => {
                                 return (
-                                    <select style={style} required name="supplier" onChange={this.props._inputHandler} value={this.props.state.supplier} key={index}>
+                                    <select style={style} name="supplier" onChange={this.props._inputHandler} value={this.props.state.supplier} key={index}>
+                                        <option value={'not selected'}> Not selected </option>
                                         <option value={value.supplierName}> {value.supplierName} </option>
                                     </select>
                                 )
