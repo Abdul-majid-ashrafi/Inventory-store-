@@ -102,7 +102,6 @@ export class BranchAndOtherActions {
 
     // CREATE PRODUCT ACTION
     static addPurchase = (obj) => {
-        console.log(obj)
         return {
             type: BranchAndOtherActions.SET_PURCHASE,
             payload: obj
