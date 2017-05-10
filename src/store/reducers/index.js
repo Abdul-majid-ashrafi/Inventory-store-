@@ -4,6 +4,7 @@ import { departReducer } from './departmentReducer'
 import { customerReducer } from './customerReducer'
 import { supplierReducer } from './suppleirReducer'
 import { productReducer } from './productReducer'
+import { purchaseReducer } from './purchaseReducer'
 
 
 export {
@@ -12,5 +13,6 @@ export {
     departReducer,
     customerReducer,
     supplierReducer,
-    productReducer
+    productReducer,
+    purchaseReducer
 }
