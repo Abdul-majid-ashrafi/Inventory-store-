@@ -4,6 +4,9 @@ import { DepartmentEpic } from './departEpic'
 import { CustomerEpic } from './customerEpic'
 import { SuppleirEpic } from './suppleirEpic'
 import { ProductEpic } from './productEpic'
+import { PurchaseEpic } from './purchaseEpic'
+// import {} from './'
+// import {} from './'
 // import {} from './'
 
 export {
@@ -12,5 +15,6 @@ export {
     DepartmentEpic,
     CustomerEpic,
     SuppleirEpic,
-    ProductEpic
+    ProductEpic,
+    PurchaseEpic
 }
