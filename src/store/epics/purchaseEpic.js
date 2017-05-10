@@ -9,23 +9,42 @@ export class PurchaseEpic {
     static createPurchase = (action$) =>
         action$.ofType('SET_PURCHASE')
             .switchMap(({ payload }) => {
-                console.log(payload.ProName)
                 payload.productId = payload.ProName.id
                 payload.productDescription = payload.ProName.description
                 payload.ProName = payload.ProName.productName
-                console.log(payload)
-                // return firebase.database().ref('/').child(`purchase/${PurchaseEpic.getLocalStorage().uid}`).push(payload)
-                //     .then((response) => {
-                        return {
-                            type: 'SET_PURCHASE_SUCCESS'
+                return Observable.fromPromise(firebase.database().ref('/').child(`purchase/${PurchaseEpic.getLocalStorage().uid}`).push(payload))
+                    .catch((error) => {
+                        return Observable.of({
+                            type: 'SET_PURCHASE_FAIL',
+                            payload: error.code
+                        })
+                    })
+                    .switchMap((error) => {
+                        if (error.message) {
+                            // error
+                            return {
+                                type: 'SET_PURCHASE_FAIL',
+                                payload: error.message
+                            };
+                        } else {
+                            return Observable.fromPromise(firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).once('value'))
+                                .map(snapshot => {
+                                    console.log('payload', payload)
+                                    let total = {
+                                        quantity: parseInt(snapshot.val().quantity) + parseInt(payload.quantity),
+                                        eachPrice: parseInt(snapshot.val().eachPrice) + parseInt(payload.eachPrice),
+                                        department: payload.department,
+                                        supplier: payload.supplier
+                                    }
+                                    console.log(snapshot.val())
+                                    firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
+                                    return {
+                                        type: 'SET_PURCHASE_SUCCESS'
+                                    }
+
+                                })
                         }
-                    // })
-                    // .catch((error) => {
-                    //     return Observable.of({
-                    //         type: 'SET_PURCHASE_FAIL',
-                    //         payload: error.code
-                    //     })
-                    // })
+                    })
             })
 
     // Get all Purchase on firebase database through user uid 
@@ -68,11 +87,11 @@ export class PurchaseEpic {
     //         });
     //     }
     // })
-// }
+    // }
 
 
     static getLocalStorage() {
-    return JSON.parse(localStorage.getItem('store'));
-}
+        return JSON.parse(localStorage.getItem('store'));
+    }
 }
 
