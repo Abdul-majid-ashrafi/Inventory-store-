@@ -9,7 +9,9 @@ class CreateProductContainer extends Component {
         super()
         this.state = {
             productName: '',
-            description: 'null'
+            description: 'null',
+            quantity: 0,
+            eachPrice: 0
         }
     }
     inputHandler(e) {
