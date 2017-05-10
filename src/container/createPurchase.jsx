@@ -9,24 +9,35 @@ class CreatePurchaseContainer extends Component {
         super()
         this.state = {
             ProName: '',
-            price: '',
+            eachPrice: '',
             quantity: '',
             branch: '',
             department: '',
-            supplier: ''
+            supplier: '',
+            totalPrice: ''
         }
     }
     inputHandler(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
+        setTimeout(() => {
+            this.setState({
+                totalPrice: this.state.eachPrice * this.state.quantity
+            })
+        }, 10)
     }
     submit(e) {
         e.preventDefault();
-        console.log(this.state)
-        // console.log(this.state)
-        //   var SelectedProduct = this.refs.store.value;
-        // console.log("productName",SelectedProduct);
+        this.setState({
+            ProName: JSON.parse(this.state.ProName)
+        })
+        setTimeout(() => {
+            console.log(this.state)
+        }, 10)
+
+        // this.state.ProName = JSON.parse(this.state.ProName)
+        // console.log(JSON.parse(this.state.ProName))
         // this.props.newBranch(this.state)
     }
     render() {
