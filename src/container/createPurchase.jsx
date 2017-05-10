@@ -33,12 +33,11 @@ class CreatePurchaseContainer extends Component {
             ProName: JSON.parse(this.state.ProName)
         })
         setTimeout(() => {
-            console.log(this.state)
+            this.props.purchase(this.state)
         }, 10)
 
         // this.state.ProName = JSON.parse(this.state.ProName)
         // console.log(JSON.parse(this.state.ProName))
-        // this.props.newBranch(this.state)
     }
     render() {
         return (
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        newBranch: (branxh) => dispatch(BranchAndOtherActions.addBranch(branxh)),
+        purchase: (obj) => dispatch(BranchAndOtherActions.addPurchase(obj)),
         resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
