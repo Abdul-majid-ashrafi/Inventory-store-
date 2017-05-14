@@ -58,22 +58,22 @@ export class CreatePurchaseComponent extends Component {
 
     render() {
         const center = {
-            width: '60%',
+            width: '70%',
             margin: '0 auto',
-            background: 'darkCyan',
+            background: '#fff',
             padding: '30px',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
             color: 'white'
         }
         const dropDownStyle = {
             margin: 10,
-            background: 'darkCyan',
+            background: '#00bcd4',
             padding: '10px',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const style = {
             color: 'white',
-            background: 'darkCyan',
+            background: '#00bcd4',
             paddingLeft: '30px',
             paddingRight: '30px',
             border: 'none',
@@ -92,14 +92,14 @@ export class CreatePurchaseComponent extends Component {
                             name="eachPrice"
                             value={this.props.state.eachPrice}
                             onChange={this.props._inputHandler}
-                            required fullWidth autoFocus
+                            required autoFocus
                         /><br />
                         <mat.TextField
                             hintText="Quantity"
                             name="quantity"
                             value={this.props.state.quantity}
                             onChange={this.props._inputHandler}
-                            required fullWidth
+                            required
                         />
                         <br />
                         {(this.props.state.totalPrice) ?
