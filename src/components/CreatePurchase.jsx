@@ -71,6 +71,14 @@ export class CreatePurchaseComponent extends Component {
             padding: '10px',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
+        const dropDownStyle2 = {
+            marginLeft: 65,
+            background: '#00bcd4',
+            padding: '10px',
+            width: 300,
+            display: 'inline-block',
+            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
+        }
         const style = {
             color: 'white',
             background: '#00bcd4',
@@ -81,29 +89,51 @@ export class CreatePurchaseComponent extends Component {
             float: 'right',
             marginRight: 20,
         };
+        console.log(this.props.state)
         return (
             <div style={{ marginTop: '30px' }}>
 
                 <div style={center}>
                     <mat.AppBar title="Purchase Product" showMenuIconButton={false} />
                     <form onSubmit={this.props._submit}>
-                        <mat.TextField
-                            hintText=" Each price"
-                            name="eachPrice"
-                            value={this.props.state.eachPrice}
-                            onChange={this.props._inputHandler}
-                            required autoFocus
-                        /><br />
-                        <mat.TextField
-                            hintText="Quantity"
-                            name="quantity"
-                            value={this.props.state.quantity}
-                            onChange={this.props._inputHandler}
-                            required
-                        />
-                        <br />
+                        <div style={{ margin: 10 }}>
+                            <mat.TextField
+                                hintText="Quantity"
+                                name="quantity"
+                                value={this.props.state.quantity}
+                                onChange={this.props._inputHandler}
+                                required fullWidth autoFocus
+                            />
+                            <br />
+                        </div>
+
+                        {/*
+                        <div>
+                            <mat.TextField
+                                style={{ margin: 10 }}
+                                hintText=" Each price"
+                                name="eachPrice"
+                                value={10}
+                                onChange={this.props._inputHandler}
+                            />
+                            <mat.TextField
+                                style={{ margin: 10 }}
+                                hintText="Quantity"
+                                name="quantity"
+                                value={5}
+                                onChange={this.props._inputHandler}
+                            />
+                            <br />
+                        </div>*/}
+
                         {(this.props.state.totalPrice) ?
-                            <div style={dropDownStyle}>
+                            <div style={dropDownStyle2}>
+                                <label style={{ fontSize: 21 }}>Price</label>
+                                <b style={style}> {this.props.state.ProName.eachPrice}</b>
+                            </div>
+                            : ''}
+                        {(this.props.state.totalPrice) ?
+                            <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Total Price</label>
                                 <b style={style}> {this.props.state.totalPrice}</b>
                             </div>

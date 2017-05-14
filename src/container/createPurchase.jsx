@@ -8,8 +8,8 @@ class CreatePurchaseContainer extends Component {
     constructor() {
         super()
         this.state = {
-            ProName: '',
-            eachPrice: '',
+            ProName: '', // pro select karega name khud ajaega
+            // eachPrice: '',
             quantity: '',
             branch: '',
             department: '',
@@ -22,8 +22,9 @@ class CreatePurchaseContainer extends Component {
             [e.target.name]: e.target.value
         })
         setTimeout(() => {
+            JSON.parse(this.state.ProName)
             this.setState({
-                totalPrice: this.state.eachPrice * this.state.quantity
+                totalPrice: this.state.ProName.eachPrice * this.state.quantity
             })
         }, 10)
     }
@@ -32,9 +33,9 @@ class CreatePurchaseContainer extends Component {
         this.setState({
             ProName: JSON.parse(this.state.ProName)
         })
-        setTimeout(() => {
-            this.props.purchase(this.state)
-        }, 10)
+        // setTimeout(() => {
+        //     this.props.purchase(this.state)
+        // }, 10)
 
         // this.state.ProName = JSON.parse(this.state.ProName)
         // console.log(JSON.parse(this.state.ProName))
