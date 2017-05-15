@@ -89,7 +89,6 @@ export class CreatePurchaseComponent extends Component {
             float: 'right',
             marginRight: 20,
         };
-        console.log(this.props.state)
         return (
             <div style={{ marginTop: '30px' }}>
 
@@ -107,29 +106,10 @@ export class CreatePurchaseComponent extends Component {
                             <br />
                         </div>
 
-                        {/*
-                        <div>
-                            <mat.TextField
-                                style={{ margin: 10 }}
-                                hintText=" Each price"
-                                name="eachPrice"
-                                value={10}
-                                onChange={this.props._inputHandler}
-                            />
-                            <mat.TextField
-                                style={{ margin: 10 }}
-                                hintText="Quantity"
-                                name="quantity"
-                                value={5}
-                                onChange={this.props._inputHandler}
-                            />
-                            <br />
-                        </div>*/}
-
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Price</label>
-                                <b style={style}> {this.props.state.ProName.eachPrice}</b>
+                                <b style={style}> {this.props.state.eachPrice}</b>
                             </div>
                             : ''}
                         {(this.props.state.totalPrice) ?
