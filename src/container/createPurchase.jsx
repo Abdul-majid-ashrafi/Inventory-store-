@@ -9,8 +9,8 @@ class CreatePurchaseContainer extends Component {
         super()
         this.state = {
             ProName: '', // pro select karega name khud ajaega
-            // eachPrice: '',
             quantity: '',
+            eachPrice: '',
             branch: '',
             department: '',
             supplier: '',
@@ -22,28 +22,25 @@ class CreatePurchaseContainer extends Component {
             [e.target.name]: e.target.value
         })
         setTimeout(() => {
-            JSON.parse(this.state.ProName)
             this.setState({
-                totalPrice: this.state.ProName.eachPrice * this.state.quantity
+                totalPrice: this.state.quantity * JSON.parse(this.state.ProName).eachPrice,
+                eachPrice: JSON.parse(this.state.ProName).eachPrice
             })
         }, 10)
     }
+
     submit(e) {
         e.preventDefault();
         this.setState({
             ProName: JSON.parse(this.state.ProName)
         })
-        // setTimeout(() => {
-        //     this.props.purchase(this.state)
-        // }, 10)
-
-        // this.state.ProName = JSON.parse(this.state.ProName)
-        // console.log(JSON.parse(this.state.ProName))
+        setTimeout(() => {
+            this.props.purchase(this.state)
+        })
     }
     render() {
         return (
             <div>
-
                 <CreatePurchaseComponent isDepartment={this.props.isDepartment} isBranche={this.props.isBranche} isProducts={this.props.isProducts} isSupplier={this.props.isSupplier} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
