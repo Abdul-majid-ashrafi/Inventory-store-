@@ -11,6 +11,7 @@ import AllSuppleirContainer from './allSuppleirs'
 import CreateProductContainer from './createProduct'
 import AllProductsContainer from './allProduct'
 import CreatePurchaseContainer from './createPurchase'
+import AllPurchaseContainer from './allPurcahse'
 
 export {
     Signup,
@@ -25,6 +26,7 @@ export {
     // AllDepartmentContainer
     CreateProductContainer,
     AllProductsContainer,
-    CreatePurchaseContainer
+    CreatePurchaseContainer,
+    AllPurchaseContainer
 
 }
