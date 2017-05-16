@@ -15,6 +15,7 @@ import { CreatePurchaseComponent } from './CreatePurchase'
 import { AllPurcahseComponent } from './AllPurchase'
 import { StockComponent } from './Stock'
 import { CreateSellComponent } from './CreateSell'
+import { AllSellComponent } from './AllSell'
 
 export {
     SignUpFrom,
@@ -33,5 +34,6 @@ export {
     CreatePurchaseComponent,
     AllPurcahseComponent,
     StockComponent,
-    CreateSellComponent
+    CreateSellComponent,
+    AllSellComponent
 }
