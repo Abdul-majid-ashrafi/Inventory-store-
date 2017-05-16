@@ -13,7 +13,8 @@ import {
     // AllDepartmentContainer
     CreateProductContainer,
     AllProductsContainer,
-    CreatePurchaseContainer
+    CreatePurchaseContainer,
+    AllPurchaseContainer
 } from '../container'
 import { NavBar } from '../components'
 
@@ -51,6 +52,7 @@ export class AllRoutes extends Component {
                                 {/*<Route path="/get_depart" component={AllDepartmentContainer} />*/}
                                 <Route path="/add_product" component={CreateProductContainer} />
                                 <Route path="/add_purchase" component={CreatePurchaseContainer} />
+                                <Route path="/view_purchase" component={AllPurchaseContainer} />
                             </Route>
                             {/*<Route path></Route>*/}
 
