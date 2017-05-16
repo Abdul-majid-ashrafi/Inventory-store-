@@ -5,7 +5,7 @@ import { CustomerEpic } from './customerEpic'
 import { SuppleirEpic } from './suppleirEpic'
 import { ProductEpic } from './productEpic'
 import { PurchaseEpic } from './purchaseEpic'
-// import {} from './'
+import { SellEpic } from './sellEpic'
 // import {} from './'
 // import {} from './'
 
@@ -16,5 +16,6 @@ export {
     CustomerEpic,
     SuppleirEpic,
     ProductEpic,
-    PurchaseEpic
+    PurchaseEpic,
+    SellEpic
 }
