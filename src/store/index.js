@@ -31,7 +31,8 @@ const allEpics = combineEpics(
     SuppleirEpic.getSuppleir,
     ProductEpic.createProduct,
     ProductEpic.getProduct,
-    PurchaseEpic.createPurchase
+    PurchaseEpic.createPurchase,
+    PurchaseEpic.getPurchase
 )
 
 const epicMiddleware = createEpicMiddleware(allEpics)
