@@ -13,6 +13,7 @@ import { CreateProductComponent } from './CreateProduct'
 import { AllProductsComponent } from './AllProducts'
 import { CreatePurchaseComponent } from './CreatePurchase'
 import { AllPurcahseComponent } from './AllPurchase'
+import { StockComponent } from './Stock'
 
 export {
     SignUpFrom,
@@ -29,5 +30,6 @@ export {
     CreateProductComponent,
     AllProductsComponent,
     CreatePurchaseComponent,
-    AllPurcahseComponent
+    AllPurcahseComponent,
+    StockComponent
 }
