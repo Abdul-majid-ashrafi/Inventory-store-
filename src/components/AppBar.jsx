@@ -80,22 +80,24 @@ class NavBar extends Component {
                                         iconButtonElement={<mat.FlatButton label="Inventory*" labelStyle={{ color: "white" }} />}
                                     >
                                         <div style={header}>
-                                            <mat.MenuItem primaryText="New Sale" style={{ color: "white" }} />
+                                            <Link to="/create_sell">
+                                                <mat.MenuItem primaryText="New Sale" style={{ color: "white" }} />
+                                            </Link>
                                             <mat.MenuItem primaryText="View Sales" style={{ color: "white" }} />
                                             <Link to="/add_purchase">
-                                            <mat.MenuItem primaryText="New Purchase" style={{ color: "white" }} />
+                                                <mat.MenuItem primaryText="New Purchase" style={{ color: "white" }} />
                                             </Link>
                                             <Link to="/view_purchase">
-                                            <mat.MenuItem primaryText="View Purchases" style={{ color: "white" }} />
+                                                <mat.MenuItem primaryText="View Purchases" style={{ color: "white" }} />
                                             </Link>
                                             <Link to="/add_product">
                                                 <mat.MenuItem primaryText="New Product" style={{ color: "white" }} />
                                             </Link>
                                             <Link to="/get_product">
-                                            <mat.MenuItem primaryText="View Products" style={{ color: "white" }} />
+                                                <mat.MenuItem primaryText="View Products" style={{ color: "white" }} />
                                             </Link>
                                             <Link to="/stock">
-                                            <mat.MenuItem primaryText="View Stocks" style={{ color: "white" }} />
+                                                <mat.MenuItem primaryText="View Stocks" style={{ color: "white" }} />
                                             </Link>
                                         </div>
                                     </mat.IconMenu>
