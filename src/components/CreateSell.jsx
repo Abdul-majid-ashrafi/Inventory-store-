@@ -17,7 +17,7 @@ export class CreateSellComponent extends Component {
 
     componentWillMount() {
         let products = this.props.isProducts.products;
-        let customers = this.props.isSupplier.suppleir;
+        let customers = this.props.isCustomer.customers;
         let branches = this.props.isBranche.branches;
         let departments = this.props.isDepartment.departments;
         let vm = this
@@ -106,7 +106,7 @@ export class CreateSellComponent extends Component {
                             />
                             <br />
                         </div>
-                        
+
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
                             <select style={style} name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName}>
@@ -144,13 +144,13 @@ export class CreateSellComponent extends Component {
                             <br />
                         </div>
                         <div style={dropDownStyle}>
-                            <label style={{ fontSize: 21 }}>Supplier</label>
+                            <label style={{ fontSize: 21 }}>Customer</label>
 
-                            <select style={style} name="supplier" onChange={this.props._inputHandler} value={this.props.state.supplier}>
+                            <select style={style} name="customer" onChange={this.props._inputHandler} value={this.props.state.customer}>
                                 <option> Not selected </option>
                                 {this.state.customerArray.map((value, index) => {
                                     return (
-                                        <option value={value.supplierName} key={index}> {value.supplierName} </option>
+                                        <option value={value.customerName} key={index}> {value.customerName} </option>
                                     )
                                 })}
                             </select>

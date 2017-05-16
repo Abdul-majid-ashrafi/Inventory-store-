@@ -13,7 +13,7 @@ class CreateSellContainer extends Component {
             eachPrice: '',
             branch: '',
             department: '',
-            supplier: '',
+            customer: '',
             totalPrice: ''
         }
     }
@@ -26,6 +26,18 @@ class CreateSellContainer extends Component {
                 totalPrice: this.state.quantity * JSON.parse(this.state.ProName).eachPrice,
                 eachPrice: JSON.parse(this.state.ProName).eachPrice
             })
+            if (this.state.quantity > JSON.parse(this.state.ProName).quantity) {
+                alert('You have ' + JSON.parse(this.state.ProName).quantity + " Items on your store")
+                this.setState({
+                    quantity: ''
+                })
+            // } else if (this.state.department) {
+            //     if (this.state.department !== JSON.parse(this.state.ProName).department)
+            //         alert(`Product Not exist in this ${this.state.department} Department`)
+            //     this.setState({
+            //         department: ''
+            //     })
+            }
         }, 10)
     }
 
@@ -35,9 +47,9 @@ class CreateSellContainer extends Component {
             ProName: JSON.parse(this.state.ProName)
         })
         setTimeout(() => {
-            console.log()
-            // this.props.purchase(this.state)
-        })
+            // console.log(this.state)
+            this.props.sell(this.state)
+        }, 10)
     }
     render() {
         return (
@@ -51,7 +63,7 @@ class CreateSellContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         isProducts: state.productReducer,//.products,
-        isCustomer: state.customerReducer,//.suppleir,
+        isCustomer: state.customerReducer,//.customer,
         isBranche: state.branchReducer,//.branches,
         isDepartment: state.departReducer,//.departments,
         isLoading: state.purchaseReducer.isLoading,
@@ -60,7 +72,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        purchase: (obj) => dispatch(BranchAndOtherActions.addPurchase(obj)),
+        sell: (obj) => dispatch(BranchAndOtherActions.addSell(obj)),
         resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }

@@ -36,10 +36,7 @@ export class SellEpic {
                                         quantity: snapshot.val().quantity - payload.quantity,
                                         totalPrice: snapshot.val().totalPrice - payload.totalPrice,
                                         department: payload.department
-                                        // supplier: payload.supplier
                                     }
-                                    console.log('snapshot',SellEpic.getLocalStorage().uid)
-                                    console.log('payload.productId',payload.productId)
                                     firebase.database().ref('/').child(`product/${SellEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
                                     return {
                                         type: 'SET_SELL_SUCCESS'
