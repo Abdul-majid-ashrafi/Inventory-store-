@@ -2,7 +2,7 @@
 const initialState = {
     isLoading: false,
     isResult: false,
-    // branches: {},
+    purchase: {},
     // productsDetail: {},
     isError: false,
     errorMSG: {},
@@ -31,9 +31,9 @@ export const purchaseReducer = (state = initialState, action) => {
             return Object.assign({}, state, newState)
 
 
-        // case 'GET_PURCHASE_SUCCESS':
-        //     newState['branches'] = Object.assign({}, action.payload);
-        //     return Object.assign({}, state, newState)
+        case 'GET_PURCHASE_SUCCESS':
+            newState['purchase'] = Object.assign({}, action.payload);
+            return Object.assign({}, state, newState)
 
         default:
             return state;
