@@ -31,25 +31,26 @@ class CreateSellContainer extends Component {
                 this.setState({
                     quantity: ''
                 })
-            // } else if (this.state.department) {
-            //     if (this.state.department !== JSON.parse(this.state.ProName).department)
-            //         alert(`Product Not exist in this ${this.state.department} Department`)
-            //     this.setState({
-            //         department: ''
-            //     })
             }
         }, 10)
     }
 
     submit(e) {
         e.preventDefault();
-        this.setState({
-            ProName: JSON.parse(this.state.ProName)
-        })
-        setTimeout(() => {
-            // console.log(this.state)
-            this.props.sell(this.state)
-        }, 10)
+        if (this.state.department !== JSON.parse(this.state.ProName).department) {
+            alert(`Product Not exist in this ${this.state.department} Department`)
+            this.setState({
+                department: '',
+                quantity: ''
+            })
+        } else {
+            this.setState({
+                ProName: JSON.parse(this.state.ProName)
+            })
+            setTimeout(() => {
+                this.props.sell(this.state)
+            }, 10)
+        }
     }
     render() {
         return (
