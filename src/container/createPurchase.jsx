@@ -53,8 +53,8 @@ const mapStateToProps = (state) => {
         isSupplier: state.supplierReducer,//.suppleir,
         isBranche: state.branchReducer,//.branches,
         isDepartment: state.departReducer,//.departments,
-        // isLoading: state.branchReducer.isLoading,
-        // isResult: state.branchReducer.isResult
+        isLoading: state.purchaseReducer.isLoading,
+        isResult: state.purchaseReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {

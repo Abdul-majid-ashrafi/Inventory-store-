@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as mat from 'material-ui';
+import { browserHistory } from 'react-router'
 
 export class CreatePurchaseComponent extends Component {
 
@@ -53,7 +54,7 @@ export class CreatePurchaseComponent extends Component {
 
     handleRequestClose = () => {
         this.props.changeResult()
-        // browserHistory.push('/home')
+        browserHistory.push('/home')
     };
 
     render() {
@@ -122,7 +123,7 @@ export class CreatePurchaseComponent extends Component {
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
                             <select style={style} name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName}>
-                                <option value={'not selected'}>  Not selected</option>
+                                <option>  Not selected</option>
                                 {this.state.productArray.map((value, index) => {
                                     return (
                                         <option value={JSON.stringify(value)} key={index}> {value.productName} </option>
@@ -134,7 +135,7 @@ export class CreatePurchaseComponent extends Component {
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Branch</label>
                             <select style={style} name="branch" onChange={this.props._inputHandler} value={this.props.state.branch}>
-                                <option value={'not selected'}> Not selected</option>
+                                <option> Not selected</option>
                                 {this.state.branchArray.map((value, index) => {
                                     return (
                                         <option value={value.branchName} key={index}> {value.branchName} </option>
@@ -146,7 +147,7 @@ export class CreatePurchaseComponent extends Component {
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Depart</label>
                             <select style={style} name="department" onChange={this.props._inputHandler} value={this.props.state.department}>
-                                <option value={'not selected'}>   Not selected </option>
+                                <option>   Not selected </option>
                                 {this.state.departArray.map((value, index) => {
                                     return (
                                         <option value={value.departName} key={index}> {value.departName} </option>
@@ -159,7 +160,7 @@ export class CreatePurchaseComponent extends Component {
                             <label style={{ fontSize: 21 }}>Supplier</label>
 
                             <select style={style} name="supplier" onChange={this.props._inputHandler} value={this.props.state.supplier}>
-                                <option value={'not selected'}> Not selected </option>
+                                <option> Not selected </option>
                                 {this.state.supplierArray.map((value, index) => {
                                     return (
                                         <option value={value.supplierName} key={index}> {value.supplierName} </option>
@@ -174,7 +175,7 @@ export class CreatePurchaseComponent extends Component {
                         {this.props.isResult && <mat.Snackbar
                             open={this.state.open}
                             message="Create successfully"
-                            autoHideDuration={4000}
+                            autoHideDuration={3000}
                             onRequestClose={this.handleRequestClose}
                         />}
                     </form>
