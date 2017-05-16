@@ -20,10 +20,8 @@ export class AllProductsComponent extends Component {
         });
     }
 
-
     render() {
         const center = {
-            // color : 'white',
             width: '70%',
             margin: '0 auto',
             background: 'darkCyan',
@@ -39,29 +37,27 @@ export class AllProductsComponent extends Component {
 
         return (
             <div style={container}>
-                 {/*<mat.RaisedButton label="New" primary={true} style={{float : 'right',backgroundColor : 'red !important'}}/>*/}
                 <br />
                 <br />
-                {/*<h1>Products</h1>*/}
                      <mat.RaisedButton label="Products" primary={true} style={center}/>
 
                 <mat.Table style={center}>
                     <mat.TableBody displayRowCheckbox={false}>
                         <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
                             <mat.TableRowColumn>Name</mat.TableRowColumn>
+                            <mat.TableRowColumn>Price</mat.TableRowColumn>
                             <mat.TableRowColumn>Description</mat.TableRowColumn>
-                            {/*<mat.TableRowColumn>Address</mat.TableRowColumn>*/}
                         </mat.TableRow>
 
                         {this.state.productArray.map((value, index) => {
                             return (
                                 <mat.TableRow style={{ color: 'white' }} key={index}>
                                     <mat.TableRowColumn>{value.productName}</mat.TableRowColumn>
+                                    <mat.TableRowColumn>{value.eachPrice}</mat.TableRowColumn>
                                     {(value.description) ?
                                         <mat.TableRowColumn>{value.description}</mat.TableRowColumn> :
                                         'null'
                                     }
-                                    {/*<mat.TableRowColumn>{value.customerAddress}</mat.TableRowColumn>*/}
                                 </mat.TableRow>
                             )
                         })}
