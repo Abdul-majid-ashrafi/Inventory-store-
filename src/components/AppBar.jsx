@@ -94,7 +94,9 @@ class NavBar extends Component {
                                             <Link to="/get_product">
                                             <mat.MenuItem primaryText="View Products" style={{ color: "white" }} />
                                             </Link>
+                                            <Link to="/stock">
                                             <mat.MenuItem primaryText="View Stocks" style={{ color: "white" }} />
+                                            </Link>
                                         </div>
                                     </mat.IconMenu>
 
