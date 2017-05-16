@@ -5,7 +5,6 @@ import { AllPurcahseComponent } from '../components'
 
 class AllPurchaseContainer extends Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 <AllPurcahseComponent isPurchase={this.props.isPurchase} />
