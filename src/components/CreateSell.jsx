@@ -54,7 +54,7 @@ export class CreateSellComponent extends Component {
 
     handleRequestClose = () => {
         this.props.changeResult()
-        // browserHistory.push('/home')
+        browserHistory.push('/home')
     };
 
     render() {
@@ -70,14 +70,6 @@ export class CreateSellComponent extends Component {
             margin: 10,
             background: '#00bcd4',
             padding: '10px',
-            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
-        }
-        const dropDownStyle2 = {
-            marginLeft: 65,
-            background: '#00bcd4',
-            padding: '10px',
-            width: 300,
-            display: 'inline-block',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const style = {
