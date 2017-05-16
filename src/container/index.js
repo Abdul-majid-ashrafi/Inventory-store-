@@ -14,6 +14,7 @@ import CreatePurchaseContainer from './createPurchase'
 import AllPurchaseContainer from './allPurcahse'
 import StockContainer from './Stock'
 import CreateSellContainer from './createSell'
+import AllSellContainer from './allSell'
 
 export {
     Signup,
@@ -31,6 +32,7 @@ export {
     CreatePurchaseContainer,
     AllPurchaseContainer,
     StockContainer,
-    CreateSellContainer
+    CreateSellContainer,
+    AllSellContainer
 
 }
