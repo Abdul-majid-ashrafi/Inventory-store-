@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-import { BranchAndOtherActions } from '../actions'
+// import { BranchAndOtherActions } from '../actions'
 // import { store } from '../index'
 
 export class PurchaseEpic {
@@ -9,8 +9,10 @@ export class PurchaseEpic {
     static createPurchase = (action$) =>
         action$.ofType('SET_PURCHASE')
             .switchMap(({ payload }) => {
+                delete payload.eachPrice
                 payload.productId = payload.ProName.id
-                payload.productDescription = payload.ProName.description
+                // payload.productDescription = payload.ProName.description
+                payload.price = payload.ProName.eachPrice
                 payload.ProName = payload.ProName.productName
                 return Observable.fromPromise(firebase.database().ref('/').child(`purchase/${PurchaseEpic.getLocalStorage().uid}`).push(payload))
                     .catch((error) => {
@@ -29,19 +31,18 @@ export class PurchaseEpic {
                         } else {
                             return Observable.fromPromise(firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).once('value'))
                                 .map(snapshot => {
-                                    console.log('payload', payload)
+                                    // console.log('payload', payload)
                                     let total = {
                                         quantity: parseInt(snapshot.val().quantity) + parseInt(payload.quantity),
-                                        eachPrice: parseInt(snapshot.val().eachPrice) + parseInt(payload.eachPrice),
+                                        totalPrice: snapshot.val().totalPrice + payload.totalPrice,
                                         department: payload.department,
                                         supplier: payload.supplier
                                     }
-                                    console.log(snapshot.val())
+                                    // console.log(snapshot.val())
                                     firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
                                     return {
                                         type: 'SET_PURCHASE_SUCCESS'
                                     }
-
                                 })
                         }
                     })
