@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
+import { BranchAndOtherActions } from '../actions'
 
 
 export class SellEpic {
@@ -46,23 +46,23 @@ export class SellEpic {
                     })
             })
 
-    // Get all Purchase on firebase database through user uid 
-    // static getPurchase = (action$) => {
-    //     return action$.ofType('LOGIN_SUCCESS')
-    //         .switchMap(({ payload }) => {
-    //             if (payload) {
-    //                 firebase.database().ref('/').child(`purchase/${payload.uid}`).on("value", (snapshot) => {
-    //                     if (snapshot.val()) {
-    //                         BranchAndOtherActions.getAllPurchase(snapshot.val())
-    //                     }
-    //                 })
-    //             }
-    //             return Observable.of({
-    //                 type: 'GET_PURCHASE_FAIL',
-    //                 // payload: {}
-    //             })
-    //         })
-    // }
+    // Get all Sell on firebase database through user uid 
+    static getSell = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`sell/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllSell(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_SELL_FAIL',
+                    // payload: {}
+                })
+            })
+    }
 
 
     static getLocalStorage() {
