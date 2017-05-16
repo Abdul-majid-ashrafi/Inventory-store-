@@ -11,7 +11,8 @@ class CreateProductContainer extends Component {
             productName: '',
             description: 'null',
             quantity: 0,
-            eachPrice: 0
+            eachPrice: 0,
+            totalPrice: 0
         }
     }
     inputHandler(e) {
