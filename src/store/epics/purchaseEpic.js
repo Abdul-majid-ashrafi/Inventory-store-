@@ -1,10 +1,9 @@
 import * as firebase from "firebase";
 import { Observable } from 'rxjs'
-// import { BranchAndOtherActions } from '../actions'
-// import { store } from '../index'
+import { BranchAndOtherActions } from '../actions'
+
 
 export class PurchaseEpic {
-
     // Create Purchase with user uid on firebase database
     static createPurchase = (action$) =>
         action$.ofType('SET_PURCHASE')
@@ -14,6 +13,7 @@ export class PurchaseEpic {
                 // payload.productDescription = payload.ProName.description
                 payload.price = payload.ProName.eachPrice
                 payload.ProName = payload.ProName.productName
+                payload.createdAt = firebase.database.ServerValue.TIMESTAMP
                 return Observable.fromPromise(firebase.database().ref('/').child(`purchase/${PurchaseEpic.getLocalStorage().uid}`).push(payload))
                     .catch((error) => {
                         return Observable.of({
@@ -49,46 +49,22 @@ export class PurchaseEpic {
             })
 
     // Get all Purchase on firebase database through user uid 
-    // static getCustomer = (action$) => {
-    //     return action$.ofType('LOGIN_SUCCESS')
-    //         .switchMap(({ payload }) => {
-    //             if (payload) {
-    //                 firebase.database().ref('/').child(`customer/${payload.uid}`).on("value", (snapshot) => {
-    //                     if (snapshot.val()) {
-    //                         BranchAndOtherActions.getAllCustomers(snapshot.val())
-    //                     }
-    //                 })
-    //             }
-    //             return Observable.of({
-    //                 type: 'GET_CUSTOMER_FAIL',
-    //                 // payload: {}
-    //             })
-
-    //         })
-
-
-    // .switchMap(({ payload }) => {
-    //     if (!payload) {
-    //         console.log("response------")
-    //         return Observable.fromPromise(firebase.database().ref('/')
-    //             .child(`customer/${CustomerEpic.getLocalStorage().uid}`).once('value'))
-    //             .map(response => {
-    //                 let obj = response.val()
-    //                 obj.id = response.key
-    //                 // response
-    //                 return {
-    //                     type: 'GET_CUSTOMER_SUCCESS',
-    //                     payload: obj
-    //                 }
-    //             })
-    //     } else {
-    //         // error
-    //         return Observable.of({
-    //             type: 'GET_CUSTOMER_FAIL'
-    //         });
-    //     }
-    // })
-    // }
+    static getPurchase = (action$) => {
+        return action$.ofType('LOGIN_SUCCESS')
+            .switchMap(({ payload }) => {
+                if (payload) {
+                    firebase.database().ref('/').child(`purchase/${payload.uid}`).on("value", (snapshot) => {
+                        if (snapshot.val()) {
+                            BranchAndOtherActions.getAllPurchase(snapshot.val())
+                        }
+                    })
+                }
+                return Observable.of({
+                    type: 'GET_PURCHASE_FAIL',
+                    // payload: {}
+                })
+            })
+    }
 
 
     static getLocalStorage() {
