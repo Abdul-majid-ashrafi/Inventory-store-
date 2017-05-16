@@ -20,47 +20,53 @@ export class AllPurcahseComponent extends Component {
         });
     }
 
-
     render() {
         const center = {
-            width: '70%',
+            width: '98%',
             margin: '0 auto',
-            background: 'darkCyan',
+            background: '#3da3b1',//00bcd4
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const container = {
-            textAlign: 'center',
-            width: '100%',
+            width: '90%',
             margin: '0 auto',
-            background: '#fff2e6',
-            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         return (
-            <div style={container}>
-                <br />
-                <br />
-                <h1>Purchase</h1>
-                {/*<mat.Table style={center}>
-                    <mat.TableBody displayRowCheckbox={false}>
-                        <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
-                            <mat.TableRowColumn>Name</mat.TableRowColumn>
-                            <mat.TableRowColumn>Number</mat.TableRowColumn>
-                            <mat.TableRowColumn>Address</mat.TableRowColumn>
-                        </mat.TableRow>
+            <div style={{ marginTop: '30px' }}>
+                <div style={container}>
+                    <mat.AppBar title="Purchase Inventory" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.Table style={center}>
+                        <mat.TableBody displayRowCheckbox={false}>
+                            <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
+                                <mat.TableRowColumn>Item</mat.TableRowColumn>
+                                <mat.TableRowColumn>Price</mat.TableRowColumn>
+                                <mat.TableRowColumn>Quantity</mat.TableRowColumn>
+                                <mat.TableRowColumn>Total Price</mat.TableRowColumn>
+                                <mat.TableRowColumn>Supplier</mat.TableRowColumn>
+                                <mat.TableRowColumn>Time</mat.TableRowColumn>
+                                <mat.TableRowColumn>Department</mat.TableRowColumn>
+                                <mat.TableRowColumn>Branch</mat.TableRowColumn>
+                            </mat.TableRow>
 
-                        {this.state.purcahseArray.map((value, index) => {
-                            return (
-                                <mat.TableRow style={{ color: 'white' }} key={index}>
-                                    <mat.TableRowColumn>{value.customerName}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerNumber}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerAddress}</mat.TableRowColumn>
-                                </mat.TableRow>
-                            )
-                        })}
-                    </mat.TableBody>
-                </mat.Table>*/}
-                <br />
-                <br />
+                            {this.state.purcahseArray.map((value, index) => {
+                                return (
+                                    <mat.TableRow style={{ color: 'white' }} key={index}>
+                                        <mat.TableRowColumn>{value.ProName}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.price}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.quantity}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.supplier}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{new Date(value.createdAt).getHours() + ":" + new Date(value.createdAt).getMinutes() + "-" + new Date(value.createdAt).toLocaleDateString()}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.department}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.branch}</mat.TableRowColumn>
+                                    </mat.TableRow>
+                                )
+                            })}
+                        </mat.TableBody>
+                    </mat.Table>
+                    <br />
+                    <br />
+                </div>
             </div>
         )
     }
