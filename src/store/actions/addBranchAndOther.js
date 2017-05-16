@@ -26,6 +26,10 @@ export class BranchAndOtherActions {
     static SET_PURCHASE_SUCCESS = 'SET_PURCHASE_SUCCESS';
     static SET_PURCHASE_FAIL = 'SET_PURCHASE_FAIL';
 
+    static SET_SELL = 'SET_SELL';
+    static SET_SELL_SUCCESS = 'SET_SELL_SUCCESS';
+    static SET_SELL_FAIL = 'SET_SELL_FAIL';
+
     static GET_CUSTOMER = 'GET_CUSTOMER';
     static GET_CUSTOMER_SUCCESS = 'GET_CUSTOMER_SUCCESS';
     static GET_CUSTOMER_FAIL = 'GET_CUSTOMER_FAIL';
@@ -103,10 +107,18 @@ export class BranchAndOtherActions {
         }
     }
 
-    // CREATE PRODUCT ACTION
+    // CREATE PURCHASE ACTION
     static addPurchase = (obj) => {
         return {
             type: BranchAndOtherActions.SET_PURCHASE,
+            payload: obj
+        }
+    }
+
+    // CREATE SELL ACTION
+    static addSell = (obj) => {
+        return {
+            type: BranchAndOtherActions.SET_SELL,
             payload: obj
         }
     }
