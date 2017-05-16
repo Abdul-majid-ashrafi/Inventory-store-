@@ -51,6 +51,9 @@ export class BranchAndOtherActions {
     static GET_PURCHASE_SUCCESS = "GET_PURCHASE_SUCCESS"
     static GET_PURCHASE_FAIL = 'GET_PURCHASE_FAIL'
 
+    static GET_SELL_SUCCESS = "GET_SELL_SUCCESS"
+    static GET_SELL_FAIL = 'GET_SELL_FAIL'
+
     // static LOGIN = 'LOGIN';
     // static LOGIN_SUCCESS = 'LOGIN_SUCCESS';
     // static ALREADY_LOGGEDIN = 'ALREADY_LOGGEDIN';
@@ -178,6 +181,16 @@ export class BranchAndOtherActions {
         store.dispatch(
             {
                 type: BranchAndOtherActions.GET_PURCHASE_SUCCESS,
+                payload: payload
+            }
+        )
+    }
+
+    // Get all Sell
+    static getAllSell = (payload) => {
+        store.dispatch(
+            {
+                type: BranchAndOtherActions.GET_SELL_SUCCESS,
                 payload: payload
             }
         )
