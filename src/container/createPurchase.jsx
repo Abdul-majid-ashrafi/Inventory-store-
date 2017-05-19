@@ -11,8 +11,8 @@ class CreatePurchaseContainer extends Component {
             ProName: '', // pro select karega name khud ajaega
             quantity: '',
             eachPrice: '',
-            branch: '',
-            department: '',
+            // branch: '',
+            // department: '',
             supplier: '',
             totalPrice: ''
         }
@@ -41,7 +41,7 @@ class CreatePurchaseContainer extends Component {
     render() {
         return (
             <div>
-                <CreatePurchaseComponent isDepartment={this.props.isDepartment} isBranche={this.props.isBranche} isProducts={this.props.isProducts} isSupplier={this.props.isSupplier} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreatePurchaseComponent isProducts={this.props.isProducts} isSupplier={this.props.isSupplier} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
@@ -51,8 +51,8 @@ const mapStateToProps = (state) => {
     return {
         isProducts: state.productReducer,//.products,
         isSupplier: state.supplierReducer,//.suppleir,
-        isBranche: state.branchReducer,//.branches,
-        isDepartment: state.departReducer,//.departments,
+        // isBranche: state.branchReducer,//.branches,
+        // isDepartment: state.departReducer,//.departments,
         isLoading: state.purchaseReducer.isLoading,
         isResult: state.purchaseReducer.isResult
     }

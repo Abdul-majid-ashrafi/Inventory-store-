@@ -10,16 +10,16 @@ export class CreateSellComponent extends Component {
             open: true,
             productArray: [],
             customerArray: [],
-            branchArray: [],
-            departArray: []
+            // branchArray: [],
+            // departArray: []
         }
     }
 
     componentWillMount() {
         let products = this.props.isProducts.products;
         let customers = this.props.isCustomer.customers;
-        let branches = this.props.isBranche.branches;
-        let departments = this.props.isDepartment.departments;
+        // let branches = this.props.isBranche.branches;
+        // let departments = this.props.isDepartment.departments;
         let vm = this
 
         Object.keys(products).forEach(function (key) {
@@ -36,19 +36,19 @@ export class CreateSellComponent extends Component {
             vm.setState({ customerArray: vm.state.customerArray })
         });
 
-        Object.keys(branches).forEach(function (key) {
-            var obj = branches[key]
-            obj.id = key
-            vm.state.branchArray.push(obj)
-            vm.setState({ branchArray: vm.state.branchArray })
-        });
+        // Object.keys(branches).forEach(function (key) {
+        //     var obj = branches[key]
+        //     obj.id = key
+        //     vm.state.branchArray.push(obj)
+        //     vm.setState({ branchArray: vm.state.branchArray })
+        // });
 
-        Object.keys(departments).forEach(function (key) {
-            var obj = departments[key]
-            obj.id = key
-            vm.state.departArray.push(obj)
-            vm.setState({ departArray: vm.state.departArray })
-        });
+        // Object.keys(departments).forEach(function (key) {
+        //     var obj = departments[key]
+        //     obj.id = key
+        //     vm.state.departArray.push(obj)
+        //     vm.setState({ departArray: vm.state.departArray })
+        // });
     }
 
 
@@ -111,7 +111,7 @@ export class CreateSellComponent extends Component {
                             </select>
                             <br />
                         </div>
-                        <div style={dropDownStyle}>
+                        {/*<div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Branch</label>
                             <select style={style} name="branch" onChange={this.props._inputHandler} value={this.props.state.branch}>
                                 <option> Not selected</option>
@@ -134,7 +134,7 @@ export class CreateSellComponent extends Component {
                                 })}
                             </select>
                             <br />
-                        </div>
+                        </div>*/}
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Customer</label>
 

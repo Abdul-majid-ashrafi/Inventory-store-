@@ -4,8 +4,8 @@ import {
     Signup,
     Signin,
     Home,
-    CreateBranchContainer,
-    CreateDepartContainer,
+    // CreateBranchContainer,
+    // CreateDepartContainer,
     CreateSupplierContainer,
     CreateCustomerContainer,
     AllCustomersContainer,
@@ -45,8 +45,8 @@ export class AllRoutes extends Component {
                             <Route path="/" component={NavBar}>
                                 <IndexRoute component={Signin} />
                                 <Route path="/home" component={Home} />
-                                <Route path="/create_branch" component={CreateBranchContainer} />
-                                <Route path="/create_branch_depart" component={CreateDepartContainer} />
+                                {/*<Route path="/create_branch" component={CreateBranchContainer} />*/}
+                                {/*<Route path="/create_branch_depart" component={CreateDepartContainer} />*/}
                                 <Route path="/create_supplier" component={CreateSupplierContainer} />
                                 <Route path="/create_customer" component={CreateCustomerContainer} />
                                 <Route path="/get_customer" component={AllCustomersContainer} />

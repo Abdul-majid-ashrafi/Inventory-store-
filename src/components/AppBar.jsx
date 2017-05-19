@@ -33,22 +33,21 @@ class NavBar extends Component {
                             title="TITLE"
                             iconElementRight={
                                 <div style={{ width: '900px', margin: '0 auto' }}>
-                                    <mat.IconMenu
+                                    {/*<mat.IconMenu
                                         iconButtonElement={<mat.FlatButton label="Branches" labelStyle={{ color: "white" }} />}
                                     >
                                         <div style={header}>
                                             <Link to="/create_branch">
                                                 <mat.MenuItem primaryText="Create Branch" style={{ color: "white" }} />
                                             </Link>
-                                            {/*<mat.MenuItem primaryText="All Branches" style={{ color: "white" }} />*/}
                                             <Link to="/create_branch_depart">
                                                 <mat.MenuItem primaryText="Create Department" style={{ color: "white" }} />
                                             </Link>
-                                            {/*<Link to="/get_depart">
+                                            <Link to="/get_depart">
                                             <mat.MenuItem primaryText="All Department" style={{ color: "white" }} />
-                                            </Link>*/}
+                                            </Link>
                                         </div>
-                                    </mat.IconMenu>
+                                    </mat.IconMenu>*/}
 
                                     <mat.IconMenu
                                         iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{ color: "white" }} />}

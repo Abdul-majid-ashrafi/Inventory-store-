@@ -11,8 +11,8 @@ class CreateSellContainer extends Component {
             ProName: '', // pro select karega name khud ajaega
             quantity: '',
             eachPrice: '',
-            branch: '',
-            department: '',
+            // branch: '',
+            // department: '',
             customer: '',
             totalPrice: ''
         }
@@ -37,25 +37,14 @@ class CreateSellContainer extends Component {
 
     submit(e) {
         e.preventDefault();
-        if (this.state.department !== JSON.parse(this.state.ProName).department) {
-            alert(`Product Not exist in this ${this.state.department} Department`)
-            this.setState({
-                department: '',
-                quantity: ''
-            })
-        } else {
-            this.setState({
-                ProName: JSON.parse(this.state.ProName)
-            })
-            setTimeout(() => {
-                this.props.sell(this.state)
-            }, 10)
-        }
+        setTimeout(() => {
+            this.props.sell(this.state)
+        }, 10)
     }
     render() {
         return (
             <div>
-                <CreateSellComponent isDepartment={this.props.isDepartment} isBranche={this.props.isBranche} isProducts={this.props.isProducts} isCustomer={this.props.isCustomer} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreateSellComponent isProducts={this.props.isProducts} isCustomer={this.props.isCustomer} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
@@ -65,8 +54,8 @@ const mapStateToProps = (state) => {
     return {
         isProducts: state.productReducer,//.products,
         isCustomer: state.customerReducer,//.customer,
-        isBranche: state.branchReducer,//.branches,
-        isDepartment: state.departReducer,//.departments,
+        // isBranche: state.branchReducer,//.branches,
+        // isDepartment: state.departReducer,//.departments,
         isLoading: state.purchaseReducer.isLoading,
         isResult: state.purchaseReducer.isResult
     }

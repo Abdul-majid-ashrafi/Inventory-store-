@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/*import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CreateBranchComponent } from '../components'
 import { BranchAndOtherActions } from '../store/actions'
@@ -42,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
         resutlFalse: () => dispatch(BranchAndOtherActions.setResultFalse())
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CreateBranchContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBranchContainer)*/

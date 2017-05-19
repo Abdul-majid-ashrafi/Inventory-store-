@@ -4,8 +4,8 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable'
 // all reducer import
 import {
     authReducer,
-    branchReducer,
-    departReducer,
+    // branchReducer,
+    // departReducer,
     customerReducer,
     supplierReducer,
     productReducer,
@@ -16,8 +16,8 @@ import {
 // all Epic import
 import {
     AuthEpic,
-    BranchesEpic,
-    DepartmentEpic,
+    // BranchesEpic,
+    // DepartmentEpic,
     CustomerEpic,
     SuppleirEpic,
     ProductEpic,
@@ -27,8 +27,8 @@ import {
 
 const rootReducer = combineReducers({
     authReducer,
-    branchReducer,
-    departReducer,
+    // branchReducer,
+    // departReducer,
     customerReducer,
     supplierReducer,
     productReducer,
@@ -40,10 +40,10 @@ const allEpics = combineEpics(
     AuthEpic.register,
     AuthEpic.login,
     AuthEpic.alreadyLoggedIn,
-    BranchesEpic.createBranche,
-    BranchesEpic.getBranch,
-    DepartmentEpic.createDepartment,
-    DepartmentEpic.getDepartment,
+    // BranchesEpic.createBranche,
+    // BranchesEpic.getBranch,
+    // DepartmentEpic.createDepartment,
+    // DepartmentEpic.getDepartment,
     CustomerEpic.createCustomer,
     SuppleirEpic.createSupleir,
     CustomerEpic.getCustomer,
