@@ -59,10 +59,16 @@ export class CreatePurchaseComponent extends Component {
 
     render() {
         const center = {
-            width: '70%',
+            width: '60%',
             margin: '0 auto',
             background: '#fff',
             padding: '30px',
+            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
+            color: 'white'
+        }
+        const header = {
+            width: '65%',
+            margin: '0 auto',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
             color: 'white'
         }
@@ -93,8 +99,8 @@ export class CreatePurchaseComponent extends Component {
         return (
             <div style={{ marginTop: '30px' }}>
 
+                <mat.AppBar style={header} title="Purchase product" showMenuIconButton={false} />
                 <div style={center}>
-                    <mat.AppBar title="Purchase Product" showMenuIconButton={false} />
                     <form onSubmit={this.props._submit}>
                         <div style={{ margin: 10 }}>
                             <mat.TextField
