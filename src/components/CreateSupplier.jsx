@@ -21,20 +21,18 @@ export class CreateSupplierComponent extends Component {
             background: '#fff',
             padding: '30px',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
-            borderBottomRightRadius: '250px',
             color: 'white'
         }
         const header = {
             width: '65%',
             margin: '0 auto',
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
-            borderTopRightRadius: '250px',
             color: 'white'
         }
         return (
             <div style={{ marginTop: '40px' }}>
 
-                <mat.AppBar style={header} title="Create your Supplier/Compony" showMenuIconButton={false} />
+                <mat.AppBar style={header} title="Create your supplier/compony" showMenuIconButton={false} />
                 <div style={center}>
                     <form onSubmit={this.props._submit}>
                         <mat.TextField
