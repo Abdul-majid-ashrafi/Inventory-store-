@@ -20,47 +20,43 @@ export class AllCustomersComponent extends Component {
         });
     }
 
-
     render() {
         const center = {
-            width: '70%',
+            width: '98%',
             margin: '0 auto',
-            background: 'darkCyan',
+            background: '#3da3b1',//00bcd4
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const container = {
-            textAlign: 'center',
-            width: '100%',
+            width: '90%',
             margin: '0 auto',
-            background: '#fff2e6',
-            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         return (
-            <div style={container}>
-                <br />
-                <br />
-                <h1>Customers</h1>
-                <mat.Table style={center}>
-                    <mat.TableBody displayRowCheckbox={false}>
-                        <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
-                            <mat.TableRowColumn>Name</mat.TableRowColumn>
-                            <mat.TableRowColumn>Number</mat.TableRowColumn>
-                            <mat.TableRowColumn>Address</mat.TableRowColumn>
-                        </mat.TableRow>
+            <div style={{ marginTop: '30px' }}>
+                <div style={container}>
+                    <mat.AppBar title="Customers" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.Table style={center}>
+                        <mat.TableBody displayRowCheckbox={false}>
+                            <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
+                                <mat.TableRowColumn>Name</mat.TableRowColumn>
+                                <mat.TableRowColumn>Number</mat.TableRowColumn>
+                                <mat.TableRowColumn>Address</mat.TableRowColumn>
+                            </mat.TableRow>
 
-                        {this.state.customerArray.map((value, index) => {
-                            return (
-                                <mat.TableRow style={{ color: 'white' }} key={index}>
-                                    <mat.TableRowColumn>{value.customerName}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerNumber}</mat.TableRowColumn>
-                                    <mat.TableRowColumn>{value.customerAddress}</mat.TableRowColumn>
-                                </mat.TableRow>
-                            )
-                        })}
-                    </mat.TableBody>
-                </mat.Table>
-                <br />
-                <br />
+                            {this.state.customerArray.map((value, index) => {
+                                return (
+                                    <mat.TableRow style={{ color: 'white' }} key={index}>
+                                        <mat.TableRowColumn>{value.customerName}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.customerNumber}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.customerAddress}</mat.TableRowColumn>
+                                    </mat.TableRow>
+                                )
+                            })}
+                        </mat.TableBody>
+                    </mat.Table>
+                    <br />
+                    <br />
+                </div>
             </div>
         )
     }
