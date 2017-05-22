@@ -50,25 +50,14 @@ class NavBar extends Component {
                                     </mat.IconMenu>*/}
 
                                     <Link to="/get_suppleirs">
-                                        <mat.IconMenu
-                                            open={false}
-                                            iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{ color: "white" }} />}
-                                        >
+                                        <mat.IconMenu open={false} iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{ color: "white" }} />}>
                                         </mat.IconMenu>
                                     </Link>
 
-                                    <mat.IconMenu
-                                        iconButtonElement={<mat.FlatButton label="Customers" labelStyle={{ color: "white" }} />}
-                                    >
-                                        <div style={header}>
-                                            <Link to="/create_customer">
-                                                <mat.MenuItem primaryText="Create Customer" style={{ color: "white" }} />
-                                            </Link>
-                                            <Link to="/get_customer">
-                                                <mat.MenuItem primaryText="All Customers" style={{ color: "white" }} />
-                                            </Link>
-                                        </div>
-                                    </mat.IconMenu>
+                                    <Link to="/get_customer">
+                                        <mat.IconMenu open={false} iconButtonElement={<mat.FlatButton label="Customers" labelStyle={{ color: "white" }} />} >
+                                        </mat.IconMenu>
+                                    </Link>
 
                                     <mat.IconMenu
                                         iconButtonElement={<mat.FlatButton label="Inventory*" labelStyle={{ color: "white" }} />}
