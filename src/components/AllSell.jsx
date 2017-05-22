@@ -19,7 +19,6 @@ export class AllSellComponent extends Component {
             vm.setState({ sellArray: vm.state.sellArray })
         });
     }
-
     render() {
         const center = {
             width: '98%',
@@ -34,7 +33,7 @@ export class AllSellComponent extends Component {
         return (
             <div style={{ marginTop: '30px' }}>
                 <div style={container}>
-                    <mat.AppBar title="Sell Inventory" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.AppBar title="Sell inventory" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
                     <mat.Table style={center}>
                         <mat.TableBody displayRowCheckbox={false}>
                             <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
