@@ -19,7 +19,6 @@ export class AllPurcahseComponent extends Component {
             vm.setState({ purcahseArray: vm.state.purcahseArray })
         });
     }
-
     render() {
         const center = {
             width: '98%',
