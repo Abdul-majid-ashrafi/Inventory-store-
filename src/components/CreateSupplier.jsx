@@ -15,12 +15,21 @@ export class CreateSupplierComponent extends Component {
     };
 
     render() {
+        // const center = {
+        //     width: '60%',
+        //     margin: '0 auto',
+        //     background: 'darkCyan',
+        //     padding: '30px',
+        //     boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
+        // }
+
         const center = {
-            width: '60%',
+            width: '70%',
             margin: '0 auto',
-            background: 'darkCyan',
+            background: '#fff',
             padding: '30px',
-            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
+            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)',
+            color: 'white'
         }
         return (
             <div style={{ marginTop: '30px' }}>
