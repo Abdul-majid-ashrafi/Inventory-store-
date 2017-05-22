@@ -49,18 +49,13 @@ class NavBar extends Component {
                                         </div>
                                     </mat.IconMenu>*/}
 
-                                    <mat.IconMenu
-                                        iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{ color: "white" }} />}
-                                    >
-                                        <div style={header}>
-                                            <Link to="/create_supplier">
-                                                <mat.MenuItem primaryText="Create Supplier" style={{ color: "white" }} />
-                                            </Link>
-                                            <Link to="/get_suppleirs">
-                                                <mat.MenuItem primaryText="All Suppliers" style={{ color: "white" }} />
-                                            </Link>
-                                        </div>
-                                    </mat.IconMenu>
+                                    <Link to="/get_suppleirs">
+                                        <mat.IconMenu
+                                            open={false}
+                                            iconButtonElement={<mat.FlatButton label="Suppliers" labelStyle={{ color: "white" }} />}
+                                        >
+                                        </mat.IconMenu>
+                                    </Link>
 
                                     <mat.IconMenu
                                         iconButtonElement={<mat.FlatButton label="Customers" labelStyle={{ color: "white" }} />}
