@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as mat from 'material-ui';
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 
 export class AllSupplierComponent extends Component {
 
@@ -22,7 +22,9 @@ export class AllSupplierComponent extends Component {
         });
     }
 
-
+    createSupplier() {
+        browserHistory.push('/create_supplier')
+    }
     render() {
         const center = {
             width: '98%',
@@ -37,7 +39,11 @@ export class AllSupplierComponent extends Component {
         return (
             <div style={{ marginTop: '30px' }}>
                 <div style={container}>
-                    <mat.AppBar title="Suppliers" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.AppBar title="Suppliers" showMenuIconButton={false}
+                        style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }}
+                        iconElementRight={
+                            <mat.RaisedButton label="Create" primary={true} onClick={this.createSupplier.bind(this)} />}
+                    />
                     <mat.Table style={center}>
                         <mat.TableBody displayRowCheckbox={false}>
                             <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
