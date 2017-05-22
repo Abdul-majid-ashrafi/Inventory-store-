@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as mat from 'material-ui';
-
+import { browserHistory } from 'react-router'
 export class AllCustomersComponent extends Component {
 
     constructor(props) {
@@ -19,6 +19,9 @@ export class AllCustomersComponent extends Component {
             vm.setState({ customerArray: vm.state.customerArray })
         });
     }
+    createCustomer() {
+        browserHistory.push('/create_customer')
+    }
 
     render() {
         const center = {
@@ -34,7 +37,12 @@ export class AllCustomersComponent extends Component {
         return (
             <div style={{ marginTop: '30px' }}>
                 <div style={container}>
-                    <mat.AppBar title="Customers" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.AppBar title="Customers"
+                        showMenuIconButton={false}
+                        style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }}
+                        iconElementRight={
+                            <mat.RaisedButton label="Create" primary={true} onClick={this.createCustomer.bind(this)} />}
+                    />
                     <mat.Table style={center}>
                         <mat.TableBody displayRowCheckbox={false}>
                             <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
