@@ -22,26 +22,20 @@ export class AllProductsComponent extends Component {
 
     render() {
         const center = {
-            width: '70%',
+            width: '98%',
             margin: '0 auto',
-            background: 'darkCyan',
+            background: '#3da3b1',//00bcd4
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const container = {
-            textAlign: 'center',
-            width: '100%',
+            width: '90%',
             margin: '0 auto',
-            background: '#fff2e6',
-            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
-
         return (
-            <div style={container}>
-                <br />
-                <br />
-                     <mat.RaisedButton label="Products" primary={true} style={center}/>
-
-                <mat.Table style={center}>
+                <div style={{ marginTop: '30px' }}>
+                <div style={container}>
+                    <mat.AppBar title="Products " showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.Table style={center}>
                     <mat.TableBody displayRowCheckbox={false}>
                         <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
                             <mat.TableRowColumn>Name</mat.TableRowColumn>
@@ -65,6 +59,7 @@ export class AllProductsComponent extends Component {
                 </mat.Table>
                 <br />
                 <br />
+            </div>
             </div>
         )
     }
