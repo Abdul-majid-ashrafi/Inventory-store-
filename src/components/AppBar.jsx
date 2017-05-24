@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import * as mat from 'material-ui';
+import { AuthActions } from '../store/actions'
+
 import { Link } from "react-router"
 class NavBar extends Component {
 
@@ -13,6 +15,9 @@ class NavBar extends Component {
         }, 1000)
     }
 
+    logout() {
+        AuthActions.logout()
+    }
     render() {
         const container = {
             marginTop: '-8px',
@@ -89,7 +94,7 @@ class NavBar extends Component {
 
                                     {/*<mat.FlatButton label="Dashboard" labelStyle={{ color: 'white' }} />*/}
 
-                                    <mat.FlatButton label="Logout" onClick={this.props.logout} labelStyle={{ color: 'white' }} />
+                                    <mat.FlatButton label="Logout" onClick={this.logout.bind(this)} labelStyle={{ color: 'white' }} />
                                 </div>
                             }>
                         </mat.AppBar>
