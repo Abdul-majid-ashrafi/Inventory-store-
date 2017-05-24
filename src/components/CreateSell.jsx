@@ -114,25 +114,33 @@ export class CreateSellComponent extends Component {
                         </div>
 
 
-
-
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Selling Price</label>
-                                <b style={style}> {this.props.state.sellPrice}</b>
+                                <mat.TextField
+                                    hintText="Selling Price"
+                                    name="sellPrice"
+                                    value={this.props.state.sellPrice}
+                                    onChange={this.props._inputHandler}
+                                    required
+                                />
                             </div>
                             : ''}
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Total Price</label>
-                                <b style={style}> {this.props.state.totalPrice}</b>
+                                <mat.TextField
+                                    hintText="Total Price"
+                                    name="totalPrice"
+                                    value={this.props.state.totalPrice}
+                                    disabled
+                                />
                             </div>
                             : ''}
 
-
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
-                            <select style={style} name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName}>
+                            <select style={style} name="ProName" onChange={this.props._P_C_Handler} value={this.props.state.ProName}>
                                 <option>  Not selected</option>
                                 {this.state.productArray.map((value, index) => {
                                     return (
