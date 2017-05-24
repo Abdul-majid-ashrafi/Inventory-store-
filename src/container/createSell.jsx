@@ -10,7 +10,7 @@ class CreateSellContainer extends Component {
         this.state = {
             ProName: '', // pro select karega name khud ajaega
             quantity: '',
-            eachPrice: '',
+            sellPrice: '',
             // branch: '',
             // department: '',
             customer: '',
@@ -23,8 +23,8 @@ class CreateSellContainer extends Component {
         })
         setTimeout(() => {
             this.setState({
-                totalPrice: this.state.quantity * JSON.parse(this.state.ProName).eachPrice,
-                eachPrice: JSON.parse(this.state.ProName).eachPrice
+                totalPrice: this.state.quantity * JSON.parse(this.state.ProName).sellPrice,
+                sellPrice: JSON.parse(this.state.ProName).sellPrice
             })
             if (this.state.quantity > JSON.parse(this.state.ProName).quantity) {
                 alert('You have ' + JSON.parse(this.state.ProName).quantity + " Items on your store")
@@ -37,9 +37,12 @@ class CreateSellContainer extends Component {
 
     submit(e) {
         e.preventDefault();
+        this.setState({
+            ProName: JSON.parse(this.state.ProName)
+        })
         setTimeout(() => {
             this.props.sell(this.state)
-        }, 10)
+        })
     }
     render() {
         return (
@@ -56,8 +59,8 @@ const mapStateToProps = (state) => {
         isCustomer: state.customerReducer,//.customer,
         // isBranche: state.branchReducer,//.branches,
         // isDepartment: state.departReducer,//.departments,
-        isLoading: state.purchaseReducer.isLoading,
-        isResult: state.purchaseReducer.isResult
+        isLoading: state.sellReducer.isLoading,
+        isResult: state.sellReducer.isResult
     }
 }
 const mapDispatchToProps = (dispatch) => {
