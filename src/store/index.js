@@ -40,6 +40,7 @@ const allEpics = combineEpics(
     AuthEpic.register,
     AuthEpic.login,
     AuthEpic.alreadyLoggedIn,
+    AuthEpic.logout,
     // BranchesEpic.createBranche,
     // BranchesEpic.getBranch,
     // DepartmentEpic.createDepartment,
