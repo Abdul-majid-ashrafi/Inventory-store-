@@ -23,6 +23,17 @@ class CreatePurchaseContainer extends Component {
         })
         setTimeout(() => {
             this.setState({
+                totalPrice: this.state.quantity * this.state.eachPrice
+            })
+        }, 10)
+    }
+    // just for product change
+    productChangeHandler(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        setTimeout(() => {
+            this.setState({
                 totalPrice: this.state.quantity * JSON.parse(this.state.ProName).eachPrice,
                 eachPrice: JSON.parse(this.state.ProName).eachPrice
             })
@@ -41,7 +52,7 @@ class CreatePurchaseContainer extends Component {
     render() {
         return (
             <div>
-                <CreatePurchaseComponent isProducts={this.props.isProducts} isSupplier={this.props.isSupplier} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreatePurchaseComponent isProducts={this.props.isProducts} isSupplier={this.props.isSupplier} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _P_C_Handler={this.productChangeHandler.bind(this)} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
