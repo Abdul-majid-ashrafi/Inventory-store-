@@ -8,6 +8,7 @@ export class PurchaseEpic {
     static createPurchase = (action$) =>
         action$.ofType('SET_PURCHASE')
             .switchMap(({ payload }) => {
+                console.log(payload)
                 delete payload.eachPrice
                 payload.productId = payload.ProName.id
                 // payload.productDescription = payload.ProName.description
@@ -35,10 +36,9 @@ export class PurchaseEpic {
                                     let total = {
                                         quantity: parseInt(snapshot.val().quantity) + parseInt(payload.quantity),
                                         totalPrice: snapshot.val().totalPrice + payload.totalPrice,
-                                        department: payload.department,
+                                        // department: payload.department,
                                         supplier: payload.supplier
                                     }
-                                    // console.log(snapshot.val())
                                     firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
                                     return {
                                         type: 'SET_PURCHASE_SUCCESS'
