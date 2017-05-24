@@ -8,6 +8,7 @@ export class SellEpic {
     static createSell = (action$) =>
         action$.ofType('SET_SELL')
             .switchMap(({ payload }) => {
+                console.log(payload)
                 delete payload.eachPrice
                 payload.productId = payload.ProName.id
                 // payload.productDescription = payload.ProName.description
