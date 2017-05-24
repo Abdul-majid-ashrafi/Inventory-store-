@@ -15,7 +15,7 @@ export class SellEpic {
                 payload.price = payload.ProName.eachPrice
                 payload.ProName = payload.ProName.productName
                 payload.createdAt = firebase.database.ServerValue.TIMESTAMP
-                console.log(payload)
+                // console.log(payload)
                 return Observable.fromPromise(firebase.database().ref('/').child(`sell/${SellEpic.getLocalStorage().uid}`).push(payload))
                     .catch((error) => {
                         return Observable.of({
@@ -36,7 +36,7 @@ export class SellEpic {
                                     let total = {
                                         quantity: snapshot.val().quantity - payload.quantity,
                                         totalPrice: snapshot.val().totalPrice - payload.totalPrice,
-                                        department: payload.department
+                                        // department: payload.department
                                     }
                                     firebase.database().ref('/').child(`product/${SellEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
                                     return {
