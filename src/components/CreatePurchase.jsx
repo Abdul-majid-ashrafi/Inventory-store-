@@ -81,6 +81,7 @@ export class CreatePurchaseComponent extends Component {
         const dropDownStyle2 = {
             marginLeft: 45,
             background: '#00bcd4',
+            color: '#fff',
             padding: '10px',
             width: 300,
             display: 'inline-block',
@@ -116,19 +117,30 @@ export class CreatePurchaseComponent extends Component {
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Purchase Price</label>
-                                <b style={style}> {this.props.state.eachPrice}</b>
+                                <mat.TextField
+                                    hintText="Purchase Price"
+                                    name="eachPrice"
+                                    value={this.props.state.eachPrice}
+                                    onChange={this.props._inputHandler}
+                                    required
+                                />
                             </div>
                             : ''}
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
                                 <label style={{ fontSize: 21 }}>Total Price</label>
-                                <b style={style}> {this.props.state.totalPrice}</b>
+                                <mat.TextField
+                                    hintText="Total Price"
+                                    name="totalPrice"
+                                    value={this.props.state.totalPrice}
+                                    disabled
+                                />
                             </div>
                             : ''}
 
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
-                            <select style={style} name="ProName" onChange={this.props._inputHandler} value={this.props.state.ProName}>
+                            <select style={style} name="ProName" onChange={this.props._P_C_Handler} value={this.props.state.ProName}>
                                 <option>  Not selected</option>
                                 {this.state.productArray.map((value, index) => {
                                     return (
