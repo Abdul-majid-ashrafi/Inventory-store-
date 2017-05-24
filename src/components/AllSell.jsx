@@ -33,7 +33,7 @@ export class AllSellComponent extends Component {
         return (
             <div style={{ marginTop: '30px' }}>
                 <div style={container}>
-                    <mat.AppBar title="Sell inventory" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
+                    <mat.AppBar title="Sell Invoice" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
                     <mat.Table style={center}>
                         <mat.TableBody displayRowCheckbox={false}>
                             <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
@@ -55,7 +55,7 @@ export class AllSellComponent extends Component {
                                         <mat.TableRowColumn>{value.quantity}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.customer}</mat.TableRowColumn>
-                                        <mat.TableRowColumn>{new Date(value.createdAt).getHours() + ":" + new Date(value.createdAt).getMinutes() + "-" + new Date(value.createdAt).toLocaleDateString()}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{new Date(value.createdAt).toLocaleTimeString() + " " + new Date(value.createdAt).toLocaleDateString()}</mat.TableRowColumn>
                                         {/*<mat.TableRowColumn>{value.department}</mat.TableRowColumn>*/}
                                         {/*<mat.TableRowColumn>{value.branch}</mat.TableRowColumn>*/}
                                     </mat.TableRow>
