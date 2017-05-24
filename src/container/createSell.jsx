@@ -23,13 +23,23 @@ class CreateSellContainer extends Component {
         })
         setTimeout(() => {
             this.setState({
+                totalPrice: this.state.quantity * this.state.sellPrice
+            })
+        }, 10)
+    }
+    productChangeHandler(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        setTimeout(() => {
+            this.setState({
                 totalPrice: this.state.quantity * JSON.parse(this.state.ProName).sellPrice,
                 sellPrice: JSON.parse(this.state.ProName).sellPrice
             })
             if (this.state.quantity > JSON.parse(this.state.ProName).quantity) {
-                alert('You have ' + JSON.parse(this.state.ProName).quantity + " Items on your store")
+                alert('Have Just' + JSON.parse(this.state.ProName).quantity + ' ' + JSON.parse(this.state.ProName).productName + " Items in your store")
                 this.setState({
-                    quantity: ''
+                    quantity: '', ProName: '', totalPrice: '', sellPrice: ''
                 })
             }
         }, 10)
@@ -47,7 +57,7 @@ class CreateSellContainer extends Component {
     render() {
         return (
             <div>
-                <CreateSellComponent isProducts={this.props.isProducts} isCustomer={this.props.isCustomer} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
+                <CreateSellComponent isProducts={this.props.isProducts} isCustomer={this.props.isCustomer} _P_C_Handler={this.productChangeHandler.bind(this)} changeResult={this.props.resutlFalse} loading={this.props.isLoading} isResult={this.props.isResult} state={this.state} _inputHandler={this.inputHandler.bind(this)} _submit={this.submit.bind(this)} />
             </div>
         );
     }
