@@ -79,7 +79,7 @@ export class CreatePurchaseComponent extends Component {
             boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
         }
         const dropDownStyle2 = {
-            marginLeft: 65,
+            marginLeft: 45,
             background: '#00bcd4',
             padding: '10px',
             width: 300,
@@ -115,7 +115,7 @@ export class CreatePurchaseComponent extends Component {
 
                         {(this.props.state.totalPrice) ?
                             <div style={dropDownStyle2}>
-                                <label style={{ fontSize: 21 }}>Price</label>
+                                <label style={{ fontSize: 21 }}>Purchase Price</label>
                                 <b style={style}> {this.props.state.eachPrice}</b>
                             </div>
                             : ''}
