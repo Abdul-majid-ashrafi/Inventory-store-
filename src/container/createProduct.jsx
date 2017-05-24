@@ -9,9 +9,10 @@ class CreateProductContainer extends Component {
         super()
         this.state = {
             productName: '',
-            description: 'null',
+            description: '',
             quantity: 0,
-            eachPrice: 0,
+            eachPrice: '',
+            sellPrice: '',
             totalPrice: 0
         }
     }
