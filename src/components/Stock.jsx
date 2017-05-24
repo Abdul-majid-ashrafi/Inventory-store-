@@ -41,9 +41,10 @@ export class StockComponent extends Component {
                             <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
                                 <mat.TableRowColumn>Item</mat.TableRowColumn>
                                 <mat.TableRowColumn>Discription</mat.TableRowColumn>
-                                <mat.TableRowColumn>Price</mat.TableRowColumn>
+                                <mat.TableRowColumn>Purchasing Price</mat.TableRowColumn>
+                                <mat.TableRowColumn>Selling Price</mat.TableRowColumn>
                                 <mat.TableRowColumn>Quantity</mat.TableRowColumn>
-                                <mat.TableRowColumn>Total Price</mat.TableRowColumn>
+                                {/*<mat.TableRowColumn>Total Price</mat.TableRowColumn>*/}
                                 {/*<mat.TableRowColumn>Department</mat.TableRowColumn>*/}
                             </mat.TableRow>
 
@@ -53,8 +54,9 @@ export class StockComponent extends Component {
                                         <mat.TableRowColumn>{value.productName}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.description}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.eachPrice}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.sellPrice}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.quantity}</mat.TableRowColumn>
-                                        <mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>
+                                        {/*<mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>*/}
                                         {/*<mat.TableRowColumn>{value.department}</mat.TableRowColumn>*/}
                                         {/*{(value.description) ?
                                         <mat.TableRowColumn>{value.description}</mat.TableRowColumn> :
