@@ -8,13 +8,13 @@ export class PurchaseEpic {
     static createPurchase = (action$) =>
         action$.ofType('SET_PURCHASE')
             .switchMap(({ payload }) => {
-                console.log(payload)
-                delete payload.eachPrice
+                // delete payload.eachPrice
                 payload.productId = payload.ProName.id
                 // payload.productDescription = payload.ProName.description
-                payload.price = payload.ProName.eachPrice
+                // payload.price = payload.eachPrice
                 payload.ProName = payload.ProName.productName
                 payload.createdAt = firebase.database.ServerValue.TIMESTAMP
+                console.log(payload)
                 return Observable.fromPromise(firebase.database().ref('/').child(`purchase/${PurchaseEpic.getLocalStorage().uid}`).push(payload))
                     .catch((error) => {
                         return Observable.of({
@@ -36,8 +36,8 @@ export class PurchaseEpic {
                                     let total = {
                                         quantity: parseInt(snapshot.val().quantity) + parseInt(payload.quantity),
                                         totalPrice: snapshot.val().totalPrice + payload.totalPrice,
-                                        // department: payload.department,
-                                        supplier: payload.supplier
+                                        // department: snapshot.val().totalPrice,
+                                        // supplier: payload.supplier
                                     }
                                     firebase.database().ref('/').child(`/product/${PurchaseEpic.getLocalStorage().uid}/${payload.productId}`).update(total)
                                     return {

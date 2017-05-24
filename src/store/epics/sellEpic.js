@@ -8,11 +8,11 @@ export class SellEpic {
     static createSell = (action$) =>
         action$.ofType('SET_SELL')
             .switchMap(({ payload }) => {
-                console.log(payload)
-                delete payload.eachPrice
+                // console.log(payload)
+                // delete payload.eachPrice
                 payload.productId = payload.ProName.id
                 // payload.productDescription = payload.ProName.description
-                payload.price = payload.ProName.eachPrice
+                // payload.price = payload.ProName.eachPrice
                 payload.ProName = payload.ProName.productName
                 payload.createdAt = firebase.database.ServerValue.TIMESTAMP
                 // console.log(payload)
