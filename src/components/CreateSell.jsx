@@ -88,6 +88,14 @@ export class CreateSellComponent extends Component {
             float: 'right',
             marginRight: 20,
         };
+        const dropDownStyle2 = {
+            marginLeft: 45,
+            background: '#00bcd4',
+            padding: '10px',
+            width: 300,
+            display: 'inline-block',
+            boxShadow: '0 15px 20px rgba(0, 0, 0, 0.3)'
+        };
         return (
             <div style={{ marginTop: '30px' }}>
 
@@ -104,6 +112,23 @@ export class CreateSellComponent extends Component {
                             />
                             <br />
                         </div>
+
+
+
+
+                        {(this.props.state.totalPrice) ?
+                            <div style={dropDownStyle2}>
+                                <label style={{ fontSize: 21 }}>Selling Price</label>
+                                <b style={style}> {this.props.state.sellPrice}</b>
+                            </div>
+                            : ''}
+                        {(this.props.state.totalPrice) ?
+                            <div style={dropDownStyle2}>
+                                <label style={{ fontSize: 21 }}>Total Price</label>
+                                <b style={style}> {this.props.state.totalPrice}</b>
+                            </div>
+                            : ''}
+
 
                         <div style={dropDownStyle}>
                             <label style={{ fontSize: 21 }}>Product</label>
