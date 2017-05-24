@@ -39,7 +39,8 @@ export class AllProductsComponent extends Component {
                     <mat.TableBody displayRowCheckbox={false}>
                         <mat.TableRow style={{ color: 'white', fontWeight: '600' }}>
                             <mat.TableRowColumn>Name</mat.TableRowColumn>
-                            <mat.TableRowColumn>Price</mat.TableRowColumn>
+                            <mat.TableRowColumn>Purchase Price</mat.TableRowColumn>
+                            <mat.TableRowColumn>Sell Price</mat.TableRowColumn>
                             <mat.TableRowColumn>Description</mat.TableRowColumn>
                         </mat.TableRow>
 
@@ -48,6 +49,7 @@ export class AllProductsComponent extends Component {
                                 <mat.TableRow style={{ color: 'white' }} key={index}>
                                     <mat.TableRowColumn>{value.productName}</mat.TableRowColumn>
                                     <mat.TableRowColumn>{value.eachPrice}</mat.TableRowColumn>
+                                    <mat.TableRowColumn>{value.sellPrice}</mat.TableRowColumn>
                                     {(value.description) ?
                                         <mat.TableRowColumn>{value.description}</mat.TableRowColumn> :
                                         'null'
