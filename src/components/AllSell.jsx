@@ -51,7 +51,7 @@ export class AllSellComponent extends Component {
                                 return (
                                     <mat.TableRow style={{ color: 'white' }} key={index}>
                                         <mat.TableRowColumn>{value.ProName}</mat.TableRowColumn>
-                                        <mat.TableRowColumn>{value.price}</mat.TableRowColumn>
+                                        <mat.TableRowColumn>{value.sellPrice}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.quantity}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.customer}</mat.TableRowColumn>
