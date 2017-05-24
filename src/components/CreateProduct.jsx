@@ -44,9 +44,17 @@ export class CreateProductComponent extends Component {
                         /><br />
                         <br />
                         <mat.TextField
-                            hintText="Product Price"
+                            hintText="Purchsing Price"
                             name="eachPrice"
                             value={this.props.state.eachPrice}
+                            onChange={this.props._inputHandler}
+                            required fullWidth
+                        /><br />
+                        <br />
+                        <mat.TextField
+                            hintText="Selling Price"
+                            name="sellPrice"
+                            value={this.props.state.sellPrice}
                             onChange={this.props._inputHandler}
                             required fullWidth
                         /><br />
