@@ -32,6 +32,7 @@ export class AllPurcahseComponent extends Component {
         }
         return (
             <div style={{ marginTop: '30px' }}>
+                <button onClick={() => window.print()}>Print</button>
                 <div style={container}>
                     <mat.AppBar title="Purchase Invoice" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
                     <mat.Table style={center}>
