@@ -32,6 +32,7 @@ export class AllSellComponent extends Component {
         }
         return (
             <div style={{ marginTop: '30px' }}>
+                <button onClick={() => window.print()}>Print</button>
                 <div style={container}>
                     <mat.AppBar title="Sell Invoice" showMenuIconButton={false} style={{ borderBottomLeftRadius: '1em', borderBottomRightRadius: '1em' }} />
                     <mat.Table style={center}>
@@ -43,8 +44,6 @@ export class AllSellComponent extends Component {
                                 <mat.TableRowColumn>Total Price</mat.TableRowColumn>
                                 <mat.TableRowColumn>Customer</mat.TableRowColumn>
                                 <mat.TableRowColumn>Time</mat.TableRowColumn>
-                                {/*<mat.TableRowColumn>Department</mat.TableRowColumn>*/}
-                                {/*<mat.TableRowColumn>Branch</mat.TableRowColumn>*/}
                             </mat.TableRow>
 
                             {this.state.sellArray.map((value, index) => {
@@ -56,8 +55,6 @@ export class AllSellComponent extends Component {
                                         <mat.TableRowColumn>{value.totalPrice}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{value.customer}</mat.TableRowColumn>
                                         <mat.TableRowColumn>{new Date(value.createdAt).toLocaleTimeString() + " " + new Date(value.createdAt).toLocaleDateString()}</mat.TableRowColumn>
-                                        {/*<mat.TableRowColumn>{value.department}</mat.TableRowColumn>*/}
-                                        {/*<mat.TableRowColumn>{value.branch}</mat.TableRowColumn>*/}
                                     </mat.TableRow>
                                 )
                             })}
